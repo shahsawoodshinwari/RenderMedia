@@ -1,0 +1,16 @@
+@import 'variables';
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf') format('ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+.py-2-5 {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+}
+
+// Bootstrap
+@import 'bootstrap/scss/bootstrap';
