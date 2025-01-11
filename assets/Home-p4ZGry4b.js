@@ -1,1 +1,0 @@
-import{_ as e,o,c as r,f as s,r as a}from"./index-AZafeOga.js";const _={};function i(t,c){return o(),r("div",null," category list goes here... ")}const p=e(_,[["render",i]]),f={components:{CategoryList:p}};function l(t,c,m,d,u,$){const n=a("CategoryList");return o(),s(n)}const x=e(f,[["render",l]]);export{x as default};
