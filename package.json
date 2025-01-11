@@ -28,7 +28,6 @@
     "@vue/test-utils": "^2.4.6",
     "eslint": "^9.14.0",
     "eslint-plugin-vue": "^9.30.0",
-    "gh-pages": "^6.3.0",
     "jsdom": "^25.0.1",
     "prettier": "^3.3.3",
     "vite": "^6.0.5",
