@@ -2,6 +2,7 @@
 import NavItem from './NavItem.vue';
 
 export default {
+  name: 'NavigaionBar',
   components: {
     NavItem,
   },
