@@ -2,35 +2,76 @@
   "name": "RenderMedia",
   "short_name": "RenderMedia",
   "description": "A videography app",
-  "start_url": "/",
-  "display": "standalone",
+  "id": "com.renderrmedia.m",
+  "app_id": "com.renderrmedia.m",
   "background_color": "#ffffff",
   "theme_color": "#001F3F",
+  "start_url": ".",
+  "dir": "ltr",
+  "scope": "/",
+  "lang": "en",
+  "orientation": "natural",
+  "display": "standalone",
+  "launch_handler": {
+    "client_mode": [
+      "focus-existing",
+      "auto"
+    ]
+  },
+  "handle_links": "preferred",
+  "scope_extensions": [
+    {
+      "origin": "*.renderrmedia.com"
+    },
+    {
+      "origin": "https://renderrmedia.com"
+    }
+  ],
+  "iarc_rating_id": "demo-iarc-id-123456",
   "icons": [
     {
-      "src": "/favicon-16x16.png",
+      "src": "/RenderMedia/favicon-16x16.png",
       "sizes": "16x16",
       "type": "image/png"
     },
     {
-      "src": "/favicon-32x32.png",
+      "src": "/RenderMedia/favicon-32x32.png",
       "sizes": "32x32",
       "type": "image/png"
     },
     {
-      "src": "/apple-touch-icon.png",
+      "src": "/RenderMedia/android-chrome-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png"
+    },
+    {
+      "src": "/RenderMedia/apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png"
     },
     {
-      "src": "/android-192x192.png",
+      "src": "/RenderMedia/android-192x192.png",
       "sizes": "192x192",
       "type": "image/png"
     },
     {
-      "src": "/android-512x512.png",
+      "src": "/RenderMedia/android-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/RenderMedia/screenshots/home-screen.png",
+      "sizes": "430x932",
+      "type": "image/png",
+      "label": "Home screen"
+    },
+    {
+      "src": "/RenderMedia/screenshots/login-screen.png",
+      "sizes": "430x932",
+      "type": "image/png",
+      "label": "Login screen"
     }
   ]
 }
