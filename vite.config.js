@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
-import VitePWA from 'vite-plugin-pwa'
+import { VitePWA } from 'vite-plugin-pwa'
 import { fileURLToPath, URL } from 'node:url'
 // import vueDevTools from 'vite-plugin-vue-devtools'
 
@@ -12,6 +12,9 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
+      devOptions: {
+        enabled: true,
+      },
       workbox: {
         importScripts: ['/sw.js'],
       },
@@ -19,11 +22,11 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
     },
   },
-  // base: '/RenderMedia',
+  base: '/RenderMedia',
   build: {
     outDir: 'build',
   },
-});
+})
