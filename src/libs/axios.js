@@ -1,15 +1,17 @@
 import axios from "axios";
 
+import axios from "axios";
+
+// configure http client globally
 const axiosInstance = axios.create({
-  baseURL: import.meta.env.APP_URL,
+  baseURL: import.meta.env.VITE_API_URL,
   headers: {
-    "X-API-Key": import.meta.env.API_KEY,
+    "X-API-Key": import.meta.env.VITE_API_KEY,
   },
 });
 
-// Example: Adding an Authorization token dynamically if needed
 axiosInstance.interceptors.request.use((config) => {
-  const token = localStorage.getItem("authToken"); // Adjust token retrieval as needed
+  const token = localStorage.getItem("authToken");
   if (token) {
     config.headers.Authorization = `Bearer ${token}`;
   }

@@ -1,13 +1,13 @@
 <script>
-import TheWelcome from '../components/TheWelcome.vue'
+import CategoryList from '../components/Category/Index.vue'
 
 export default {
   components: {
-    TheWelcome,
+    CategoryList,
   }
 }
 </script>
 
 <template>
-  <TheWelcome />
+  <CategoryList />
 </template>
