@@ -20,10 +20,9 @@ export default {
       try {
         const response = await axiosInstance.get('/categories');
         this.categories = response.data.data;
+        this.isLoading = false;
       } catch (error) {
         console.error('Error fetching categories:', error);
-      } finally {
-        this.isLoading = false;
       }
     },
   },
