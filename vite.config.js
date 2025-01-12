@@ -12,9 +12,9 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
-      // devOptions: {
-      //   enabled: true,
-      // },
+      devOptions: {
+        enabled: true,
+      },
       workbox: {
         importScripts: ['/sw.js'],
       },
