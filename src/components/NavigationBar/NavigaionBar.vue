@@ -10,7 +10,7 @@ export default {
 </script>
 <template>
   <div class="sticky-bottom navigation-bar w-100 bg-theme">
-    <div class="container py-2">
+    <div class="container py-2 px-4">
       <ul class="nav nav-pills nav-flush w-100 justify-content-between text-center py-3">
         <NavItem link="/">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="bi bi-house"
@@ -46,10 +46,6 @@ export default {
 </template>
 
 <style>
-.bg-theme {
-  background-color: #001f3f;
-}
-
 .navigation-bar a {
   --bs-nav-link-color: white;
 }

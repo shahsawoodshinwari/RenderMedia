@@ -1,6 +1,6 @@
 <script>
 import NavigationBar from '@/components/NavigationBar/NavigaionBar.vue';
-import TopNavigationBar from '@/components/TopNavigationBar/Index.vue'
+import TopNavigationBar from '@/components/TopNavigationBar/TopNavigationBar.vue'
 
 export default {
   components: {
@@ -20,6 +20,10 @@ export default {
 </template>
 
 <style>
+.bg-theme {
+  background-color: #001f3f;
+}
+
 body {
   background-color: #001f3f;
   background-image: url('../assets/background-icons.svg');
