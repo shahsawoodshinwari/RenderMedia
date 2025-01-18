@@ -1,54 +1,90 @@
-// This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
+const CACHE_VERSION = 'v1'
+const CACHE_NAME = `pwa-cache-${CACHE_VERSION}`
+const OFFLINE_PAGE = '/offline.html'
 
-const CACHE = "pwabuilder-offline-page";
-
-importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
-
-// TODO: replace the following with the correct offline fallback page i.e.: const offlineFallbackPage = "offline.html";
-const offlineFallbackPage = "ToDo-replace-this-name.html";
-
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
-});
-
-self.addEventListener('install', async (event) => {
+// Pre-cache static assets and offline page
+self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE)
-      .then((cache) => cache.add(offlineFallbackPage))
-  );
-});
+    caches
+      .open(CACHE_NAME)
+      .then((cache) =>
+        cache.addAll([OFFLINE_PAGE, '/favicon.ico', '/robots.txt', '/apple-touch-icon.png']),
+      ),
+  )
+  self.skipWaiting() // Force activation of the new service worker
+})
 
-if (workbox.navigationPreload.isSupported()) {
-  workbox.navigationPreload.enable();
-}
+// Remove old caches during activation
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((cacheNames) =>
+      Promise.all(
+        cacheNames.map((cache) => {
+          if (cache !== CACHE_NAME) {
+            return caches.delete(cache)
+          }
+        }),
+      ),
+    ),
+  )
+  self.clients.claim() // Take control of the pages immediately
+})
 
-workbox.routing.registerRoute(
-  new RegExp('/*'),
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: CACHE
-  })
-);
-
+// Intercept fetch requests
 self.addEventListener('fetch', (event) => {
-  if (event.request.mode === 'navigate') {
-    event.respondWith((async () => {
-      try {
-        const preloadResp = await event.preloadResponse;
+  const { request } = event
 
-        if (preloadResp) {
-          return preloadResp;
-        }
-
-        const networkResp = await fetch(event.request);
-        return networkResp;
-      } catch (error) {
-
-        const cache = await caches.open(CACHE);
-        const cachedResp = await cache.match(offlineFallbackPage);
-        return cachedResp;
-      }
-    })());
+  // HTML Pages: NetworkFirst strategy
+  if (request.mode === 'navigate') {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          const clonedResponse = response.clone()
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(request, clonedResponse)
+          })
+          return response
+        })
+        .catch(async () => {
+          const cache = await caches.open(CACHE_NAME)
+          return cache.match(OFFLINE_PAGE)
+        }),
+    )
+    return
   }
-});
+
+  // Static Assets: CacheFirst strategy
+  if (['style', 'script', 'image', 'font'].includes(request.destination)) {
+    event.respondWith(
+      caches.match(request).then((cachedResponse) => {
+        if (cachedResponse) {
+          return cachedResponse
+        }
+        return fetch(request).then((response) => {
+          const clonedResponse = response.clone()
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put(request, clonedResponse)
+          })
+          return response
+        })
+      }),
+    )
+    return
+  }
+
+  // Default: NetworkFirst strategy
+  event.respondWith(
+    fetch(request)
+      .then((response) => {
+        const clonedResponse = response.clone()
+        caches.open(CACHE_NAME).then((cache) => {
+          cache.put(request, clonedResponse)
+        })
+        return response
+      })
+      .catch(async () => {
+        const cache = await caches.open(CACHE_NAME)
+        return cache.match(request)
+      }),
+  )
+})
