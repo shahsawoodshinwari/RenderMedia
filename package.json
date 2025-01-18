@@ -11,7 +11,7 @@
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
     "serve": "vite preview",
-    "deploy": "npm run build && gh-pages -d build"
+    "deploy": "npm run build && touch build/CNAME && echo m.renderrmedia.com > build/CNAME && gh-pages -d build"
   },
   "dependencies": {
     "@vueuse/head": "^2.0.0",
