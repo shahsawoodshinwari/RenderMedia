@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid px-0 d-flex flex-column svh-100 justify-content-center align-items-center">
+  <div class="container-fluid px-0 d-flex flex-column svh-100 align-items-center">
     <main class="flex-grow-1 container px-3">
       <RouterView />
     </main>
