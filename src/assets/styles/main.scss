@@ -18,5 +18,11 @@
   height: 100dvh;
 }
 
+@media (min-width: 768px) {
+  main.flex-grow-1 {
+    width: 412px !important;
+  }
+}
+
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
