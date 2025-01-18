@@ -6,7 +6,7 @@
   "app_id": "com.renderrmedia.m",
   "background_color": "#ffffff",
   "theme_color": "#001F3F",
-  "start_url": ".",
+  "start_url": "/",
   "dir": "ltr",
   "scope": "/",
   "lang": "en",
