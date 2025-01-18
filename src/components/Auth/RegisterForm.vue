@@ -1,5 +1,6 @@
 <script>
 import { VueMaskDirective } from 'v-mask';
+import { useUserStore } from '@/stores/userStore';
 import { useForm } from 'laravel-precognition-vue';
 
 export default {
@@ -19,6 +20,7 @@ export default {
         password_confirmation: '',
         privacy: false,
       }),
+      userStore: useUserStore(),
       genders: [
         { key: 'male', value: 'Male' },
         { key: 'female', value: 'Female' },
@@ -29,10 +31,8 @@ export default {
   methods: {
     onSubmit() {
       this.form.submit().then((response) => {
-        console.log(response);
-        localStorage.setItem('authToken', response.data.token);
-        localStorage.setItem('user', response.data);
-        // this.$router.push({ name: 'home' })
+        this.userStore.setUserData(response.data.data);
+        this.$router.push({ name: 'home' })
       })
         .catch(error => {
           console.log(error);
@@ -72,7 +72,7 @@ export default {
 
     <!-- Phone -->
     <div class="col-12">
-      <input v-model="form.phone" v-mask="'##-###-###'" @input="form.validate('phone')" class="form-control"
+      <input v-model="form.phone" @input="form.validate('phone')" class="form-control"
         :class="{ 'is-invalid': form.invalid('phone') }" placeholder="Phone No" />
       <div v-if="form.invalid('phone')" class="invalid-feedback">
         {{ form.errors.phone }}
