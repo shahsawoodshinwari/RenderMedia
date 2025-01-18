@@ -1,13 +1,9 @@
 <script>
-import { VueMaskDirective } from 'v-mask';
 import { useUserStore } from '@/stores/userStore';
 import { useForm } from 'laravel-precognition-vue';
 
 export default {
   name: 'RegisterForm',
-  directives: {
-    mask: VueMaskDirective,
-  },
   data() {
     return {
       form: useForm('post', '/register', {
