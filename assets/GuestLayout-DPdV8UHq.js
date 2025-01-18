@@ -1,1 +1,0 @@
-import{_ as t,c as o,a as n,b as c,o as s,r as a}from"./index-C2R6CbGk.js";const r={},i={class:"container-fluid px-0 d-flex flex-column svh-100 justify-content-center align-items-center"},_={class:"flex-grow-1 container px-3"};function l(f,d){const e=a("RouterView");return s(),o("div",i,[n("main",_,[c(e)])])}const m=t(r,[["render",l]]);export{m as default};
