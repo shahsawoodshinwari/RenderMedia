@@ -13,7 +13,7 @@ export default {
     this.fetchCategories();
   },
   methods: {
-    isLastItemOdd(index) {
+    isFullSize(index) {
       return index === this.categories.length - 1 && this.categories.length % 2 !== 0;
     },
     async fetchCategories() {
@@ -44,7 +44,7 @@ export default {
 
     <!-- Show Categories -->
     <template v-else>
-      <div :class="['col-6']" v-for="(item, index) in categories" :key="index">
+      <div :class="[isFullSize(index) ? 'col-12' : 'col-6']" v-for="(item, index) in categories" :key="index">
         <img :src="item.cover" class="img-fluid w-100 rounded-4 mb-1" loading="lazy" :alt="item.name" />
         <div class="text-center text-truncated">
           {{ item.name }}
