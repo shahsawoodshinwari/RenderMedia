@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/auth/',
-    component: () => import('../layouts/Guest.vue'),
+    component: () => import('../layouts/GuestLayout.vue'),
     children: [
       {
         path: 'login',
@@ -19,7 +19,7 @@ const routes = [
   },
   {
     path: '/',
-    component: () => import('../layouts/App.vue'),
+    component: () => import('../layouts/AppLayout.vue'),
     children: [
       {
         path: '',

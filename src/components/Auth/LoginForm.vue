@@ -55,8 +55,10 @@ export default {
 
     <!-- Login -->
     <div class="col-8">
-      <button class="btn btn-primary w-100">
-        <span v-if="form.processing">...</span>
+      <button class="btn btn-primary w-100" :disabled="form.processing">
+        <div v-if="form.processing" class="spinner-border spinner-border-sm" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
         <span v-else>Login</span>
       </button>
     </div>

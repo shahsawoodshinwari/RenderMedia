@@ -15,7 +15,7 @@ export default {
 };
 </script>
 <template>
-  <div class="container">
+  <div>
     <div class="text-center mb-4">
       <RouterLink :to="{ name: 'home' }">
         <img :src="logo" class="img-fluid" width="200" alt="Render Media Official Logo">

@@ -10,7 +10,7 @@ export default {
         last_name: '',
         email: '',
         phone: '',
-        gener: '',
+        gender: '',
         password: '',
         password_confirmation: '',
         privacy: false,
@@ -24,8 +24,9 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.form.submit().then(() => {
-        this.$router.push({ name: 'home' })
+      this.form.submit().then((response) => {
+        console.log(response);
+        // this.$router.push({ name: 'home' })
       })
         .catch(error => {
           console.log(error);
@@ -56,10 +57,10 @@ export default {
 
     <!-- Email Address -->
     <div class="col-12">
-      <input v-model="form.last_name" @change="form.validate('last_name')" class="form-control"
-        :class="{ 'is-invalid': form.invalid('last_name') }" placeholder="Email" />
-      <div v-if="form.invalid('last_name')" class="invalid-feedback">
-        {{ form.errors.last_name }}
+      <input v-model="form.email" @change="form.validate('email')" class="form-control"
+        :class="{ 'is-invalid': form.invalid('email') }" placeholder="Email" />
+      <div v-if="form.invalid('email')" class="invalid-feedback">
+        {{ form.errors.email }}
       </div>
     </div>
 
@@ -99,7 +100,7 @@ export default {
     <div class="col-12">
       <input type="password" v-model="form.password_confirmation" @change="form.validate('password_confirmation')"
         class="form-control" :class="{ 'is-invalid': form.invalid('password_confirmation') }"
-        placeholder="Password_confirmation" />
+        placeholder="Password Confirmation" />
       <div v-if="form.invalid('password_confirmation')" class="invalid-feedback">
         {{ form.errors.password_confirmation }}
       </div>
@@ -118,8 +119,10 @@ export default {
 
     <!-- Login -->
     <div class="col-8">
-      <button class="btn btn-primary w-100">
-        <span v-if="form.processing">...</span>
+      <button class="btn btn-primary w-100" :disabled="form.processing">
+        <div v-if="form.processing" class="spinner-border spinner-border-sm" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
         <span v-else>SIGN UP</span>
       </button>
     </div>
