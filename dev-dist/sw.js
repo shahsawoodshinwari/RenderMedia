@@ -67,9 +67,8 @@ if (!self.define) {
     });
   };
 }
-define(['./workbox-54d0af47'], (function (workbox) { 'use strict';
+define(['./workbox-e7681877'], (function (workbox) { 'use strict';
 
-  importScripts("/sw.js");
   self.skipWaiting();
   workbox.clientsClaim();
 
@@ -82,12 +81,19 @@ define(['./workbox-54d0af47'], (function (workbox) { 'use strict';
     "url": "registerSW.js",
     "revision": "3ca0b8505b4bec776b69afdba2768812"
   }, {
-    "url": "index.html",
-    "revision": "0.7jn9i3nehjo"
+    "url": "/index.html",
+    "revision": "0.5nmoc9t6cl"
   }], {});
   workbox.cleanupOutdatedCaches();
-  workbox.registerRoute(new workbox.NavigationRoute(workbox.createHandlerBoundToURL("index.html"), {
+  workbox.registerRoute(new workbox.NavigationRoute(workbox.createHandlerBoundToURL("/index.html"), {
     allowlist: [/^\/$/]
   }));
+  workbox.registerRoute(/^https?.*\.(html|js|css|png|jpg|svg)$/, new workbox.NetworkFirst({
+    "cacheName": "dynamic-content-cache",
+    plugins: [new workbox.ExpirationPlugin({
+      maxEntries: 50,
+      maxAgeSeconds: 604800
+    })]
+  }), 'GET');
 
 }));

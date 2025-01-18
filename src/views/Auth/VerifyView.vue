@@ -1,11 +1,11 @@
 <script>
-import LoginForm from '@/components/Auth/LoginForm.vue';
 import OfficialLogo from '@/components/OfficialLogo.vue';
+import VerifyForm from '@/components/Auth/VerifyForm.vue';
 
 export default {
   name: 'LoginView',
   components: {
-    LoginForm,
+    VerifyForm,
     OfficialLogo,
   },
 };
@@ -14,9 +14,9 @@ export default {
   <div>
     <div class="text-center mb-4">
       <OfficialLogo />
-      <h1 class="text-uppercase fw-bold">login</h1>
-      <p class="w-75 mx-auto">Enter with a click Login simplifies your access securely.</p>
+      <h1 class="text-capitalize fw-bold">verify your email</h1>
+      <p class="w-75 mx-auto">We sent a 5-Digit verification code to your register email address.</p>
     </div>
-    <LoginForm />
+    <VerifyForm />
   </div>
 </template>

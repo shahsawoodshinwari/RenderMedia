@@ -1,4 +1,5 @@
 <script>
+import { useUserStore } from '@/stores/userStore';
 import { useForm } from 'laravel-precognition-vue';
 
 export default {
@@ -11,10 +12,17 @@ export default {
       }),
     };
   },
+  computed: {
+    userStore() {
+      return useUserStore();
+    }
+  },
   methods: {
     onSubmit() {
-      this.form.submit().then(() => {
-        this.$router.push({ name: 'home' })
+      this.form.submit().then((response) => {
+        this.userStore.setUserData(response.data.data)
+
+        this.$router.push({ name: 'home' });
       })
         .catch(error => {
           console.log(error);
@@ -27,8 +35,8 @@ export default {
   <form @submit.prevent="onSubmit" class="row justify-content-center g-3">
     <!-- Email -->
     <div class="col-12">
-      <input v-model="form.email" @change="form.validate('email')" class="form-control"
-        :class="{ 'is-invalid': form.invalid('email') }" placeholder="Email address" />
+      <input v-model="form.email" class="form-control" :class="{ 'is-invalid': form.invalid('email') }"
+        placeholder="Email address" />
       <div v-if="form.invalid('email')" class="invalid-feedback">
         {{ form.errors.email }}
       </div>
@@ -36,8 +44,8 @@ export default {
 
     <!-- Password -->
     <div class="col-12">
-      <input v-model="form.password" @change="form.validate('password')" class="form-control"
-        :class="{ 'is-invalid': form.invalid('password') }" placeholder="Password" />
+      <input v-model="form.password" class="form-control" :class="{ 'is-invalid': form.invalid('password') }"
+        placeholder="Password" />
       <div v-if="form.invalid('password')" class="invalid-feedback">
         {{ form.errors.password }}
       </div>

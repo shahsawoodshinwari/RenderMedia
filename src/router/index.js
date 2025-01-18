@@ -1,3 +1,6 @@
+import authGuard from './guards/authGuard'
+import guestGuard from './guards/guestGuard'
+import verifiedGuard from './guards/verifiedGuard'
 import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
@@ -9,11 +12,19 @@ const routes = [
         path: 'login',
         name: 'auth.login',
         component: () => import('../views/Auth/LoginView.vue'),
+        beforeEnter: [guestGuard],
       },
       {
         path: 'register',
         name: 'auth.register',
         component: () => import('../views/Auth/RegisterView.vue'),
+        beforeEnter: [guestGuard],
+      },
+      {
+        path: 'email/verify',
+        name: 'email.verify',
+        component: () => import('../views/Auth/VerifyView.vue'),
+        beforeEnter: [authGuard],
       },
     ],
   },
@@ -25,6 +36,7 @@ const routes = [
         path: '',
         name: 'home',
         component: () => import('../views/HomeView.vue'),
+        beforeEnter: [authGuard, verifiedGuard],
       },
     ],
   },

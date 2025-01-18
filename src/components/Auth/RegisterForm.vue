@@ -1,8 +1,12 @@
 <script>
+import { VueMaskDirective } from 'v-mask';
 import { useForm } from 'laravel-precognition-vue';
 
 export default {
   name: 'RegisterForm',
+  directives: {
+    mask: VueMaskDirective,
+  },
   data() {
     return {
       form: useForm('post', '/register', {
@@ -26,6 +30,8 @@ export default {
     onSubmit() {
       this.form.submit().then((response) => {
         console.log(response);
+        localStorage.setItem('authToken', response.data.token);
+        localStorage.setItem('user', response.data);
         // this.$router.push({ name: 'home' })
       })
         .catch(error => {
@@ -39,7 +45,7 @@ export default {
   <form @submit.prevent="onSubmit" class="row justify-content-center g-3">
     <!-- First name -->
     <div class="col-12">
-      <input v-model="form.first_name" @change="form.validate('first_name')" class="form-control"
+      <input v-model="form.first_name" @input="form.validate('first_name')" class="form-control"
         :class="{ 'is-invalid': form.invalid('first_name') }" placeholder="First Name" />
       <div v-if="form.invalid('first_name')" class="invalid-feedback">
         {{ form.errors.first_name }}
@@ -48,7 +54,7 @@ export default {
 
     <!-- Last Name -->
     <div class="col-12">
-      <input v-model="form.last_name" @change="form.validate('last_name')" class="form-control"
+      <input v-model="form.last_name" @input="form.validate('last_name')" class="form-control"
         :class="{ 'is-invalid': form.invalid('last_name') }" placeholder="Last Name" />
       <div v-if="form.invalid('last_name')" class="invalid-feedback">
         {{ form.errors.last_name }}
@@ -57,7 +63,7 @@ export default {
 
     <!-- Email Address -->
     <div class="col-12">
-      <input v-model="form.email" @change="form.validate('email')" class="form-control"
+      <input v-model="form.email" @input="form.validate('email')" class="form-control"
         :class="{ 'is-invalid': form.invalid('email') }" placeholder="Email" />
       <div v-if="form.invalid('email')" class="invalid-feedback">
         {{ form.errors.email }}
@@ -66,7 +72,7 @@ export default {
 
     <!-- Phone -->
     <div class="col-12">
-      <input v-model="form.phone" @change="form.validate('phone')" class="form-control"
+      <input v-model="form.phone" v-mask="'##-###-###'" @input="form.validate('phone')" class="form-control"
         :class="{ 'is-invalid': form.invalid('phone') }" placeholder="Phone No" />
       <div v-if="form.invalid('phone')" class="invalid-feedback">
         {{ form.errors.phone }}
@@ -78,7 +84,7 @@ export default {
       <select v-model="form.gender" @change="form.validate('gender')" class="form-select"
         :class="{ 'is-invalid': form.invalid('gender') }">
         <option value="">Select Gender</option>
-        <option :value="gender.key" v-for="gender in genders" :key="gender.key">
+        <option :value="gender.value" v-for="gender in genders" :key="gender.key">
           {{ gender.value }}
         </option>
       </select>
@@ -89,7 +95,7 @@ export default {
 
     <!-- Password -->
     <div class="col-12">
-      <input type="password" v-model="form.password" @change="form.validate('password')" class="form-control"
+      <input type="password" v-model="form.password" @input="form.validate('password')" class="form-control"
         :class="{ 'is-invalid': form.invalid('password') }" placeholder="Password" />
       <div v-if="form.invalid('password')" class="invalid-feedback">
         {{ form.errors.password }}
@@ -98,7 +104,7 @@ export default {
 
     <!-- Password Confirmation -->
     <div class="col-12">
-      <input type="password" v-model="form.password_confirmation" @change="form.validate('password_confirmation')"
+      <input type="password" v-model="form.password_confirmation" @input="form.validate('password_confirmation')"
         class="form-control" :class="{ 'is-invalid': form.invalid('password_confirmation') }"
         placeholder="Password Confirmation" />
       <div v-if="form.invalid('password_confirmation')" class="invalid-feedback">

@@ -45,7 +45,7 @@ export default {
     <!-- Show Categories -->
     <template v-else>
       <div :class="['col-6']" v-for="(item, index) in categories" :key="index">
-        <img :src="item.cover" class="img-fluid w-100 rounded-4 mb-1" :alt="item.name" />
+        <img :src="item.cover" class="img-fluid w-100 rounded-4 mb-1" loading="lazy" :alt="item.name" />
         <div class="text-center text-truncated">
           {{ item.name }}
         </div>
@@ -53,3 +53,9 @@ export default {
     </template>
   </div>
 </template>
+
+<style scoped>
+img {
+  min-height: 140px;
+}
+</style>

@@ -1,5 +1,17 @@
+<script>
+import OfficialLogo from '@/components/OfficialLogo.vue';
+
+export default {
+  name: 'TopNavigationBar',
+  components: {
+    OfficialLogo,
+  },
+};
+</script>
+
 <template>
-  <div class="container p-4 sticky-top bg-theme d-flex justify-content-between">
+  <div class="container p-4 pb-3 sticky-top bg-theme d-flex justify-content-between align-items-center">
+    <OfficialLogo :cropped="true" width="50" />
     <RouterLink to="/notifications" class="ms-auto text-white">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-app-indicator"
         viewBox="0 0 16 16">
