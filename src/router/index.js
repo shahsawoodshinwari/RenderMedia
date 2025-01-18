@@ -8,10 +8,16 @@ const routes = [
       {
         path: 'login',
         name: 'auth.login',
-        component: () => import('../views/Auth/Login.vue'),
+        component: () => import('../views/Auth/LoginView.vue'),
+      },
+      {
+        path: 'register',
+        name: 'auth.register',
+        component: () => import('../views/Auth/RegisterView.vue'),
       },
     ],
-  },  {
+  },
+  {
     path: '/',
     component: () => import('../layouts/App.vue'),
     children: [

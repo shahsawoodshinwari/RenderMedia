@@ -3,9 +3,15 @@ $body-bg: #001f3f;
 $body-color: white;
 
 // Form Controls
-$input-bg: white;
-$input-color: black;
+// $input-bg: white;
+// $input-color: black;
 $input-border-radius: 50rem;
+$input-padding-y: 0.75rem;
+$input-padding-x: 1rem;
+
+// Buttons
+$btn-padding-y: $input-padding-y;
+$btn-border-radius: $input-border-radius;
 
 // Typography
 $font-family-sans-serif: 'Roboto', sans-serif;

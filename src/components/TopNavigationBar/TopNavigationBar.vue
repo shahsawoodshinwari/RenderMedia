@@ -1,6 +1,6 @@
 <template>
   <div class="container p-4 sticky-top bg-theme d-flex justify-content-between">
-    <RouterLink to="#" class="ms-auto text-white">
+    <RouterLink to="/notifications" class="ms-auto text-white">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-app-indicator"
         viewBox="0 0 16 16">
         <path
