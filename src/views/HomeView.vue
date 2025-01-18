@@ -1,11 +1,18 @@
 <script>
+import metaData from '@/meta/home'
+import { useHead } from '@vueuse/head';
 import CategoryList from '../components/Category/CategoryIndex.vue'
 
 export default {
   name: 'HomeView',
   components: {
     CategoryList,
-  }
+  },
+  methods: {
+    metaData() {
+      useHead(metaData);
+    },
+  },
 }
 </script>
 

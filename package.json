@@ -14,12 +14,12 @@
     "deploy": "npm run build && gh-pages -d build"
   },
   "dependencies": {
+    "@vueuse/head": "^2.0.0",
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
     "pinia": "^2.3.0",
     "sass": "^1.83.1",
     "vue": "^3.5.13",
-    "vue-meta": "^2.4.0",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
