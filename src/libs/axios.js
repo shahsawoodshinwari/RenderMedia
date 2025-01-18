@@ -7,6 +7,7 @@ const axiosInstance = axios.create({
     // 'X-API-Key': import.meta.env.VITE_API_KEY,
     'X-API-Key': `eyJpdiI6IjBxZEdST1BscWlVdVRnNWZXT05TM2c9PSIsInZhbHVlIjoiMXJMdzZmMEg4dGZaNjdUTm1mYVZpUzNBdDdjT0NWUW5wd1JIVU9DbzlFbz0iLCJtYWMiOiJiYWVlYTU1NTc3Mjg2ZmYwYmMwNDY1ZWRmYzQ4ZTY1NGIyNDkzNTVkNDBmMzBmZjhhMWY0MDJhNTc2MmUwM2JkIiwidGFnIjoiIn0=`,
   },
+  withCredentials: false,
 })
 
 axiosInstance.interceptors.request.use(
