@@ -6,13 +6,19 @@ export default {
   components: {
     OfficialLogo,
   },
+  computed: {
+    pageTitle() {
+      return this.$route.meta.title;
+    },
+  }
 };
 </script>
 
 <template>
   <div class="container p-4 pb-3 sticky-top bg-theme d-flex justify-content-between align-items-center">
     <OfficialLogo :cropped="true" width="50" />
-    <RouterLink to="/notifications" class="ms-auto text-white">
+    <h1 v-if="pageTitle" class="mb-0 fs-5 fw-medium">{{ pageTitle }}</h1>
+    <RouterLink to="/notifications" class="text-white">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-app-indicator"
         viewBox="0 0 16 16">
         <path

@@ -1,6 +1,6 @@
 <script>
 import NavigationBar from '@/components/NavigationBar/NavigaionBar.vue';
-import TopNavigationBar from '@/components/TopNavigationBar/TopNavigationBar.vue'
+import TopNavigationBar from '@/components/TopNavigationBar.vue'
 
 export default {
   components: {

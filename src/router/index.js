@@ -38,6 +38,15 @@ const routes = [
         component: () => import('../views/HomeView.vue'),
         beforeEnter: [authGuard, verifiedGuard],
       },
+      {
+        path: '/bookings',
+        name: 'bookings.index',
+        component: () => import('../views/Bookings/BookingList.vue'),
+        beforeEnter: [authGuard, verifiedGuard],
+        meta: {
+          title: 'Bookings',
+        },
+      },
     ],
   },
   {

@@ -19,8 +19,9 @@
 }
 
 @media (min-width: 768px) {
-  main.flex-grow-1 {
+  .container-fluid.svh-100:has(main.flex-grow-1) {
     width: 412px !important;
+    outline: 3px solid white;
   }
 }
 
