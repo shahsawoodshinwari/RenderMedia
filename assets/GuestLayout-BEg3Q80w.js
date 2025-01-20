@@ -1,0 +1,1 @@
+import{_ as o,c as t,a as s,b as c,r as n,o as a}from"./index-DekdswoP.js";const r={},_={class:"container-fluid px-0 d-flex flex-column svh-100 align-items-center"},i={class:"flex-grow-1 container px-3"};function l(d,f){const e=n("RouterView");return a(),t("div",_,[s("main",i,[c(e)])])}const u=o(r,[["render",l]]);export{u as default};
