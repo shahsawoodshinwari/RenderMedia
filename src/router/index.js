@@ -47,6 +47,12 @@ const routes = [
           title: 'Bookings',
         },
       },
+      {
+        path: '/bookings/shoot-type',
+        name: 'bookings.create.shoot-type',
+        component: () => import('../views/Bookings/ShootingTypeView.vue'),
+        beforeEnter: [authGuard, verifiedGuard],
+      },
     ],
   },
   {

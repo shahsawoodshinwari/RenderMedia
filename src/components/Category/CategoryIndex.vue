@@ -45,10 +45,12 @@ export default {
     <!-- Show Categories -->
     <template v-else>
       <div :class="[isFullSize(index) ? 'col-12' : 'col-6']" v-for="(item, index) in categories" :key="index">
-        <img :src="item.cover" class="img-fluid w-100 rounded-4 mb-1" loading="lazy" :alt="item.name" />
-        <div class="text-center text-truncated">
-          {{ item.name }}
-        </div>
+        <RouterLink :to="{ name: 'bookings.create.shoot-type' }" class="text-decoration-none text-white">
+          <img :src="item.cover" class="img-fluid w-100 rounded-4 mb-1" loading="lazy" :alt="item.name" />
+          <div class="text-center text-truncated">
+            {{ item.name }}
+          </div>
+        </RouterLink>
       </div>
     </template>
   </div>
