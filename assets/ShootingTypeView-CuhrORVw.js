@@ -1,0 +1,1 @@
+import{_ as t,c as s,a as o,o as n}from"./index-DDbHArYD.js";const a={name:"ShootingTypeView"},c={class:"text-center mb-3"};function r(i,e,p,l,m,_){return n(),s("div",c,e[0]||(e[0]=[o("h1",{class:"fw-medium mb-3"},"Select a Shoot Type",-1),o("p",{class:"mb-0"},"Are you looking for the key to unlock your",-1)]))}const f=t(a,[["render",r]]);export{f as default};
