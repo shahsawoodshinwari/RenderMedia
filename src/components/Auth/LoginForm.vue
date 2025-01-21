@@ -1,4 +1,5 @@
 <script>
+import { useToast } from 'vue-toastification';
 import { useUserStore } from '@/stores/userStore';
 import { useForm } from 'laravel-precognition-vue';
 
@@ -10,6 +11,7 @@ export default {
         email: '',
         password: '',
       }),
+      toast: useToast(),
     };
   },
   computed: {
@@ -23,6 +25,7 @@ export default {
         this.userStore.setUserData(response.data.data)
 
         this.$router.push({ name: 'home' });
+        this.toast.success('Authenticated successfully.');
       })
         .catch(error => {
           console.log(error);
