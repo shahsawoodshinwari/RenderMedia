@@ -44,8 +44,6 @@ export default {
   },
   methods: {
     validateForm() {
-      this.errors = {};
-
       if (!this.payload.sub_category_id || (this.subCategoryDetails && !this.payload.sub_category_details)) {
         this.toast.error('Please fill in the required fields.');
         this.isValid = false
@@ -86,7 +84,7 @@ export default {
 
       <!-- Submit -->
       <div class="col-12 text-center">
-        <button v-if="!isValid" class="btn btn-primary w-50 fw-bold">Next</button>
+        <button v-if="!isValid" @click="validateForm" class="btn btn-primary w-50 fw-bold">Next</button>
         <RouterLink v-else :to="{ name: 'bookings.create.filming-location', params: { category: category } }"
           class="btn btn-primary w-50 fw-bold">Next</RouterLink>
       </div>
