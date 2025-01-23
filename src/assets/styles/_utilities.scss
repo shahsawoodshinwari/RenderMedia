@@ -1,0 +1,7 @@
+.position-relative .form-control:not(.is-invalid) + .end-px-7 {
+  right: 7px !important;
+}
+
+.position-relative .form-control.is-invalid + .end-px-7 {
+  right: 34px !important;
+}

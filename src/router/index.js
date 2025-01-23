@@ -54,6 +54,13 @@ const routes = [
         beforeEnter: [authGuard, verifiedGuard],
         props: true,
       },
+      {
+        path: '/bookings/:category/filming-location',
+        name: 'bookings.create.filming-location',
+        component: () => import('../views/Bookings/FilmingLocationView.vue'),
+        beforeEnter: [authGuard, verifiedGuard],
+        props: true,
+      },
     ],
   },
   {
