@@ -1,0 +1,5 @@
+# Allow all search engines to index the main content
+User-agent: *
+
+# Sitemap
+Sitemap: https://m.renderrmedia.com/sitemap.xml
