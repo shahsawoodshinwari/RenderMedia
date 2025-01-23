@@ -1,35 +1,68 @@
 <script>
-import axiosInstance from '@/libs/axios';
+import { useForm } from 'laravel-precognition-vue';
+import { useBookingStore } from '@/stores/bookingStore';
+import { useCategoriesStore } from '@/stores/categoriesStore';
+import { useBookingFormStepsStore } from '@/stores/bookingFormSteps';
 
 export default {
   name: 'CategoryIndex',
+
   data() {
     return {
       categories: [],
       isLoading: true,
     };
   },
+
+  computed: {
+    categoriesStore() {
+      return useCategoriesStore();
+    },
+
+    bookingStore() {
+      return useBookingStore();
+    },
+
+    bookingFormStepsStore() {
+      return useBookingFormStepsStore();
+    },
+
+    fetchCategoriesForm() {
+      return useForm('get', '/categories', {});
+    },
+  },
+
   mounted() {
     this.fetchCategories();
   },
+
   methods: {
     isFullSize(index) {
       return index === this.categories.length - 1 && this.categories.length % 2 !== 0;
     },
-    async fetchCategories() {
-      try {
-        const response = await axiosInstance.get('/categories');
+
+    fetchCategories() {
+      this.fetchCategoriesForm.submit().then(async response => {
         this.categories = response.data.data;
+        this.categoriesStore.setCategories(this.categories);
         this.isLoading = false;
-      } catch (error) {
-        console.error('Error fetching categories:', error);
-      }
+      });
+    },
+
+    next(categoryId) {
+      this.bookingStore.setCategoryId(categoryId);
+      this.bookingFormStepsStore.setTab('ShootingType');
     },
   },
 };
 </script>
 
 <template>
+  <div class="text-center mb-3">
+    <h1 class="fw-medium mb-3">Are You Looking For ?</h1>
+    <p class="mb-0">Are you looking for the key to unlock your next opportunity?</p>
+  </div>
+
   <div class="row g-3 justify-content-center">
 
     <!-- Show skeletons while loading -->
@@ -44,14 +77,12 @@ export default {
 
     <!-- Show Categories -->
     <template v-else>
-      <div :class="[isFullSize(index) ? 'col-12' : 'col-6']" v-for="(item, index) in categories" :key="index">
-        <RouterLink :to="{ name: 'bookings.create.shoot-type', params: { category: item.id } }"
-          class="text-decoration-none text-white">
-          <img :src="item.cover" class="img-fluid w-100 rounded-4 mb-1" loading="lazy" :alt="item.name" />
-          <div class="text-center text-truncated">
-            {{ item.name }}
-          </div>
-        </RouterLink>
+      <div :class="[isFullSize(index) ? 'col-12' : 'col-6']" @click="next(item.id)" v-for="(item, index) in categories"
+        :key="index">
+        <img :src="item.cover" class="img-fluid w-100 rounded-4 mb-1" loading="lazy" :alt="item.name" />
+        <div class="text-center text-truncated">
+          {{ item.name }}
+        </div>
       </div>
     </template>
   </div>

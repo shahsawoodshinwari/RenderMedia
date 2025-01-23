@@ -1,24 +1,16 @@
 <script>
-import { useForm } from 'laravel-precognition-vue'
-import { useToast } from 'vue-toastification';
+import { useToast } from 'vue-toastification'
+import { useBookingStore } from '@/stores/bookingStore'
 import NoBookingsFound from '@/assets/no-bookings-found.png'
+import { useCategoriesStore } from '@/stores/categoriesStore'
+import { useBookingFormStepsStore } from '@/stores/bookingFormSteps'
 
 export default {
   name: 'ShootingType',
-  inject: {
-    category: {
-      type: String,
-      required: true,
-    },
-  },
   data() {
     return {
       subCategories: [],
       notFound: NoBookingsFound,
-      fetchCategoryForm: useForm('get', '/categories', {
-        category_id: this.category,
-      }),
-      isLoading: true,
       isValid: false,
       payload: {
         sub_category_id: '',
@@ -28,6 +20,15 @@ export default {
     };
   },
   computed: {
+    categoriesStore() {
+      return useCategoriesStore();
+    },
+    bookingStore() {
+      return useBookingStore();
+    },
+    bookingFormSteps() {
+      return useBookingFormStepsStore();
+    },
     subCategoryDetails() {
       if (!this.selectedSubCategory) return false;
 
@@ -40,7 +41,9 @@ export default {
     },
   },
   mounted() {
-    this.fetchSubCategories();
+    const category = this.categoriesStore.findCategory(this.bookingStore.category_id);
+    this.subCategories = category ? category.children : [];
+    this.isLoading = false;
   },
   methods: {
     validateForm() {
@@ -51,21 +54,21 @@ export default {
         return;
       }
 
+      this.bookingStore.setShootingType(this.payload);
       this.isValid = true;
+      this.bookingFormSteps.setTab('FilmingLocation');
     },
-    fetchSubCategories() {
-      this.isLoading = true;
-      this.fetchCategoryForm.submit().then(response => {
-        this.subCategories = response.data.data.length > 0 ? response.data.data[0].children : [];
-        this.isLoading = false;
-      });
-    }
   },
 };
 </script>
 
 <template>
-  <div v-if="subCategories.length > 0 && !isLoading">
+  <div class="text-center mb-3">
+    <h1 class="fw-medium mb-3">Select a Shoot Type</h1>
+    <p class="mb-0">Are you looking for the key to unlock your</p>
+  </div>
+
+  <div v-if="subCategories.length > 0">
     <div class="row gx-3 gy-4">
       <!-- Shoot Type -->
       <div class="col-12">
@@ -79,29 +82,18 @@ export default {
 
       <!-- Sub Category Details -->
       <div class="col-12" v-if="subCategoryDetails">
-        <input type="text" class="form-control" placeholder="Please describe the shoot type" />
+        <input type="text" v-model="payload.sub_category_details" class="form-control"
+          placeholder="Please describe the shoot type" />
       </div>
 
       <!-- Submit -->
       <div class="col-12 text-center">
-        <button v-if="!isValid" @click="validateForm" class="btn btn-primary w-50 fw-bold">Next</button>
-        <RouterLink v-else :to="{ name: 'bookings.create.filming-location', params: { category: category } }"
-          class="btn btn-primary w-50 fw-bold">Next</RouterLink>
-      </div>
-    </div>
-  </div>
-  <div v-else-if="!isLoading">
-    <div class="text-center">
-      <img :src="notFound" class="img-fluid w-50 mb-3" alt="No bookings found" />
-      <div class="fs-4 text-muted">Whoops</div>
-      <div class="fs-6 text-secondary w-75 mx-auto">
-        It looks like there is something missing from the data. Please refresh and come
-        again.
+        <button @click="validateForm" class="btn btn-primary w-50 fw-bold">Next</button>
       </div>
     </div>
   </div>
   <div v-else>
-    <div class="d-flex flex-column gap-3 placeholder-glow">
+    <div class="d-flex flex-column gap-3 align-items-center justify-content-center  placeholder-glow">
       <div class="placeholder rounded-pill py-4"></div>
     </div>
   </div>

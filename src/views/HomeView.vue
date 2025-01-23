@@ -1,12 +1,27 @@
 <script>
 import metaData from '@/meta/home'
 import { useHead } from '@vueuse/head';
+import ShootingType from '@/components/Bookings/ShootingType.vue';
 import CategoryList from '../components/Category/CategoryIndex.vue'
+import { useBookingFormStepsStore } from '@/stores/bookingFormSteps';
+import FilmingLocation from '@/components/Bookings/FilmingLocation.vue';
 
 export default {
   name: 'HomeView',
   components: {
     CategoryList,
+    ShootingType,
+    FilmingLocation,
+  },
+  data() {
+    return {
+      currentTab: 'CategoryList',
+    };
+  },
+  computed: {
+    bookingFormSteps() {
+      return useBookingFormStepsStore();
+    },
   },
   methods: {
     metaData() {
@@ -17,9 +32,5 @@ export default {
 </script>
 
 <template>
-  <div class="text-center mb-3">
-    <h1 class="fw-medium mb-3">Are You Looking For ?</h1>
-    <p class="mb-0">Are you looking for the key to unlock your next opportunity?</p>
-  </div>
-  <CategoryList />
+  <Component :is="bookingFormSteps.currentTab" />
 </template>

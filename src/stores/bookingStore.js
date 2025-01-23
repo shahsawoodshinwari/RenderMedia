@@ -19,6 +19,9 @@ export const useBookingStore = defineStore('bookings', {
   }),
 
   actions: {
+    setCategoryId(category_id) {
+      this.category_id = category_id
+    },
     setShootingType({ sub_category_id, sub_category_details }) {
       this.sub_category_id = sub_category_id
       this.sub_category_details = sub_category_details
