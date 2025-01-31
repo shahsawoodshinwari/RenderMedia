@@ -115,23 +115,3 @@ self.addEventListener('fetch', (event) => {
       }),
   )
 })
-
-// Background Sync for Downloading Data when App is Closed or Offline
-self.addEventListener('sync', (event) => {
-  if (event.tag === 'sync-bookings') {
-    event.waitUntil(
-      fetch('/bookings')
-        .then((response) => response.json())
-        .then((data) => {
-          // Do something with the bookings data here
-          // For example, update the cache or send the data to the server
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put('/bookings', new Response(JSON.stringify(data)))
-          })
-        })
-        .catch((error) => {
-          console.error('Background Sync failed:', error)
-        }),
-    )
-  }
-})
