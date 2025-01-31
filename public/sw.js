@@ -1,15 +1,18 @@
-const CACHE_VERSION = 'v1'
+const CACHE_VERSION = 'v1.0.0.0'
 const CACHE_NAME = `pwa-cache-${CACHE_VERSION}`
-const OFFLINE_PAGE = '/offline.html'
+const OFFLINE_PAGE = '/offline' // Updated route
 
 // Pre-cache static assets and offline page
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches
-      .open(CACHE_NAME)
-      .then((cache) =>
-        cache.addAll([OFFLINE_PAGE, '/favicon.ico', '/robots.txt', '/apple-touch-icon.png']),
-      ),
+    caches.open(CACHE_NAME).then((cache) =>
+      cache.addAll([
+        OFFLINE_PAGE, // Change to the new route
+        '/favicon.ico',
+        '/robots.txt',
+        '/apple-touch-icon.png',
+      ]),
+    ),
   )
   self.skipWaiting() // Force activation of the new service worker
 })
@@ -47,7 +50,7 @@ self.addEventListener('fetch', (event) => {
         })
         .catch(async () => {
           const cache = await caches.open(CACHE_NAME)
-          return cache.match(OFFLINE_PAGE)
+          return cache.match(OFFLINE_PAGE) // Serve the offline route
         }),
     )
     return

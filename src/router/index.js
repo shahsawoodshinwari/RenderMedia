@@ -48,6 +48,14 @@ const routes = [
         },
       },
       {
+        path: '/offline',
+        name: 'offline',
+        component: () => import('../views/OfflineView.vue'),
+        meta: {
+          title: 'No Internet Conncetion',
+        },
+      },
+      {
         path: '/settings',
         name: 'settings',
         component: () => import('../views/SettingsView.vue'),
