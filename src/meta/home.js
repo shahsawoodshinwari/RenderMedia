@@ -22,7 +22,7 @@ export default {
     },
     {
       property: 'og:image',
-      content: '/screenshots/home-screen.png',
+      content: '/screenshots/home-screen.webp',
     },
     {
       property: 'og:url',
@@ -47,7 +47,7 @@ export default {
     },
     {
       name: 'twitter:image',
-      content: '/screenshots/home-screen.png',
+      content: '/screenshots/home-screen.webp',
     },
   ],
   link: [

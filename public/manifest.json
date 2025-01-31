@@ -4,7 +4,7 @@
   "description": "A videography app",
   "id": "com.renderrmedia.m",
   "app_id": "com.renderrmedia.m",
-  "background_color": "#ffffff",
+  "background_color": "#001F3F",
   "theme_color": "#001F3F",
   "start_url": "/",
   "dir": "ltr",
@@ -62,16 +62,22 @@
   ],
   "screenshots": [
     {
-      "src": "/screenshots/home-screen.png",
+      "src": "/screenshots/home-screen.webp",
       "sizes": "430x932",
-      "type": "image/png",
+      "type": "image/webp",
       "label": "Home screen"
     },
     {
-      "src": "/screenshots/login-screen.png",
+      "src": "/screenshots/login-screen.webp",
       "sizes": "430x932",
-      "type": "image/png",
+      "type": "image/webp",
       "label": "Login screen"
+    },
+    {
+      "src": "/screenshots/register-screen.webp",
+      "sizes": "430x932",
+      "type": "image/webp",
+      "label": "Register screen"
     }
   ],
   "display_override": [
