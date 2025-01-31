@@ -43,7 +43,7 @@ export default {
     <!-- Email -->
     <div class="col-12">
       <div class="position-relative">
-        <input v-model="form.email" class="form-control pe-5" :class="{ 'is-invalid': form.invalid('email') }"
+        <input v-model="form.email" class="form-control pe-5" name="email" :class="{ 'is-invalid': form.invalid('email') }"
           placeholder="Email address" />
         <span class="position-absolute top-50 end-px-7 translate-middle">
           <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="grey" class="bi bi-envelope"
@@ -61,7 +61,7 @@ export default {
     <!-- Password -->
     <div class="col-12">
       <div class="position-relative">
-        <input v-model="form.password" class="form-control" :class="{ 'is-invalid': form.invalid('password') }"
+        <input v-model="form.password" class="form-control" name="password" :class="{ 'is-invalid': form.invalid('password') }"
           :type="isPasswordVisible ? 'text' : 'password'" placeholder="Password" />
         <!-- Eye (visible password) -->
         <span v-if="!isPasswordVisible" @click="togglePasswordVisibility"
