@@ -12,29 +12,35 @@ export default {
     },
     mini: {
       type: Boolean,
-      default: false
+      default: false,
     },
     cropped: {
       type: Boolean,
-      default: false
+      default: false,
     },
   },
   computed: {
     logo() {
       if (this.mini) {
-        return OfficialLogoFileMini;
+        return OfficialLogoFileMini
       }
       if (this.cropped) {
-        return OfficialLogoFileCropped;
+        return OfficialLogoFileCropped
       }
-      return OfficialLogoFile;
-    }
+      return OfficialLogoFile
+    },
   },
-};
+}
 </script>
 
 <template>
   <RouterLink :to="{ name: 'home' }" class="rounded-0 bg-transparent">
-    <img :src="logo" class="img-fluid" :width="width" :height="width" alt="Render Media Official Logo">
+    <img
+      :src="logo"
+      class="img-fluid"
+      :width="width"
+      :height="width"
+      alt="Render Media Official Logo"
+    />
   </RouterLink>
 </template>

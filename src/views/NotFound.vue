@@ -1,11 +1,11 @@
 <script>
 export default {
   mounted() {
-    const link = document.createElement('link');
-    link.rel = 'preload';
-    link.href = '../assets/404.webp';
-    link.as = 'image';
-    document.head.appendChild(link);
+    const link = document.createElement('link')
+    link.rel = 'preload'
+    link.href = '../assets/404.webp'
+    link.as = 'image'
+    document.head.appendChild(link)
   },
 }
 </script>
@@ -14,17 +14,15 @@ export default {
     <h1 class="display-1 text-danger">404</h1>
     <p class="lead text-muted">Page Not Found</p>
 
-    <img src="../assets/404.webp" class="img-fluid w-75 mb-4 rounded" alt="404 Not Found">
+    <img src="../assets/404.webp" class="img-fluid w-75 mb-4 rounded" alt="404 Not Found" />
 
     <p class="text-muted">
-      The resource you are looking for could not be found on the server. It might have been removed or moved to another
-      location.
+      The resource you are looking for could not be found on the server. It might have been removed
+      or moved to another location.
     </p>
 
     <!-- Suggest returning to home -->
-    <router-link to="/" class="btn btn-primary">
-      Go to Home
-    </router-link>
+    <router-link to="/" class="btn btn-primary"> Go to Home </router-link>
   </div>
 </template>
 

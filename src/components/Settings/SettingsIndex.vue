@@ -1,8 +1,8 @@
 <script>
 import NavLink from './NavLink.vue'
 import { useToast } from 'vue-toastification'
-import { useUserStore } from '@/stores/userStore';
-import { useForm } from 'laravel-precognition-vue';
+import { useUserStore } from '@/stores/userStore'
+import { useForm } from 'laravel-precognition-vue'
 
 export default {
   name: 'SettingsIndex',
@@ -23,7 +23,7 @@ export default {
   methods: {
     logout() {
       this.logoutForm.submit().then(() => {
-        this.userStore.logout();
+        this.userStore.logout()
         this.$router.push({ name: 'auth.login' })
       })
     },

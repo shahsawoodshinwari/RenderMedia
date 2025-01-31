@@ -1,5 +1,5 @@
 <script>
-import NavigationBar from '@/components/NavigationBar/NavigationBar.vue';
+import NavigationBar from '@/components/NavigationBar/NavigationBar.vue'
 import TopNavigationBar from '@/components/TopNavigationBar.vue'
 
 export default {
@@ -7,7 +7,7 @@ export default {
     NavigationBar,
     TopNavigationBar,
   },
-};
+}
 </script>
 <template>
   <div class="container-fluid px-0 d-flex flex-column svh-100 align-items-center">

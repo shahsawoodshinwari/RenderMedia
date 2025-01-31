@@ -1,6 +1,6 @@
 <script>
-import FilmingLocation from '@/assets/Filming-Location.png';
-import FilmingLocationBackground from '@/assets/Filming-Location-Background.png';
+import FilmingLocation from '@/assets/Filming-Location.png'
+import FilmingLocationBackground from '@/assets/Filming-Location-Background.png'
 
 export default {
   name: 'FilmingLocation',
@@ -8,12 +8,12 @@ export default {
     return {
       filmingLocation: FilmingLocation,
       filmingLocationBg: FilmingLocationBackground,
-    };
+    }
   },
-};
+}
 </script>
 <template>
-  <img :src="filmingLocationBg" class="img-fluid" alt="Filming Location Bg">
+  <img :src="filmingLocationBg" class="img-fluid" alt="Filming Location Bg" />
   <div class="text-center mb-3">
     <img :src="filmingLocation" alt="Filming Location" />
   </div>

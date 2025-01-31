@@ -17,49 +17,52 @@ export default {
         sub_category_details: '',
       },
       toast: useToast(),
-    };
+    }
   },
   computed: {
     categoriesStore() {
-      return useCategoriesStore();
+      return useCategoriesStore()
     },
     bookingStore() {
-      return useBookingStore();
+      return useBookingStore()
     },
     bookingFormSteps() {
-      return useBookingFormStepsStore();
+      return useBookingFormStepsStore()
     },
     subCategoryDetails() {
-      if (!this.selectedSubCategory) return false;
+      if (!this.selectedSubCategory) return false
 
-      return this.selectedSubCategory.name.toLowerCase() == 'other';
+      return this.selectedSubCategory.name.toLowerCase() == 'other'
     },
     selectedSubCategory() {
       return this.subCategories.find(
-        (subCategory) => subCategory.id == this.payload.sub_category_id
-      );
+        (subCategory) => subCategory.id == this.payload.sub_category_id,
+      )
     },
   },
   mounted() {
-    const category = this.categoriesStore.findCategory(this.bookingStore.category_id);
-    this.subCategories = category ? category.children : [];
-    this.isLoading = false;
+    const category = this.categoriesStore.findCategory(this.bookingStore.category_id)
+    this.subCategories = category ? category.children : []
+    this.isLoading = false
   },
   methods: {
     validateForm() {
-      if (!this.payload.sub_category_id || (this.subCategoryDetails && !this.payload.sub_category_details)) {
-        this.toast.error('Please fill in the required fields.');
+      if (
+        !this.payload.sub_category_id ||
+        (this.subCategoryDetails && !this.payload.sub_category_details)
+      ) {
+        this.toast.error('Please fill in the required fields.')
         this.isValid = false
 
-        return;
+        return
       }
 
-      this.bookingStore.setShootingType(this.payload);
-      this.isValid = true;
-      this.bookingFormSteps.setTab('FilmingLocation');
+      this.bookingStore.setShootingType(this.payload)
+      this.isValid = true
+      this.bookingFormSteps.setTab('FilmingLocation')
     },
   },
-};
+}
 </script>
 
 <template>
@@ -82,8 +85,12 @@ export default {
 
       <!-- Sub Category Details -->
       <div class="col-12" v-if="subCategoryDetails">
-        <input type="text" v-model="payload.sub_category_details" class="form-control"
-          placeholder="Please describe the shoot type" />
+        <input
+          type="text"
+          v-model="payload.sub_category_details"
+          class="form-control"
+          placeholder="Please describe the shoot type"
+        />
       </div>
 
       <!-- Submit -->
@@ -93,7 +100,9 @@ export default {
     </div>
   </div>
   <div v-else>
-    <div class="d-flex flex-column gap-3 align-items-center justify-content-center  placeholder-glow">
+    <div
+      class="d-flex flex-column gap-3 align-items-center justify-content-center placeholder-glow"
+    >
       <div class="placeholder rounded-pill py-4"></div>
     </div>
   </div>

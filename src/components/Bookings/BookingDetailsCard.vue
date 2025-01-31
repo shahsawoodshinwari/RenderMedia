@@ -1,5 +1,5 @@
 <script>
-import { useForm } from 'laravel-precognition-vue';
+import { useForm } from 'laravel-precognition-vue'
 
 export default {
   name: 'BookingDetailsCard',
@@ -7,33 +7,33 @@ export default {
     booking: {
       type: Object,
       required: true,
-    }
+    },
   },
   data() {
     return {
       form: useForm('post', '/bookings', {}),
-    };
+    }
   },
   methods: {
     paymentClass(paymentStatus) {
       switch (paymentStatus?.toLowerCase()) {
         case 'paid':
-          return 'text-bg-success';
+          return 'text-bg-success'
         case 'partial':
-          return 'text-bg-warning';
+          return 'text-bg-warning'
         case 'unpaid':
-          return 'text-bg-danger';
+          return 'text-bg-danger'
         default:
-          return 'text-bg-secondary';
+          return 'text-bg-secondary'
       }
     },
     reschedule() {
-      this.form.submit().then(response => {
-        console.log(response);
-      });
-    }
-  }
-};
+      this.form.submit().then((response) => {
+        console.log(response)
+      })
+    },
+  },
+}
 </script>
 
 <template>
@@ -75,7 +75,15 @@ export default {
         </div>
 
         <div class="col-6">
-          <div :class="['rounded-pill', 'py-1', 'px-3', 'fs-small', paymentClass(booking.payment_status)]">
+          <div
+            :class="[
+              'rounded-pill',
+              'py-1',
+              'px-3',
+              'fs-small',
+              paymentClass(booking.payment_status),
+            ]"
+          >
             Payment: {{ booking.payment_status }}
           </div>
         </div>
@@ -95,6 +103,6 @@ export default {
 
 .card .rounded-pill.bg-light {
   font-size: x-small;
-  background-color: #001F3F29 !important;
+  background-color: #001f3f29 !important;
 }
 </style>

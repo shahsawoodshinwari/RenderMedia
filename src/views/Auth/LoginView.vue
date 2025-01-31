@@ -1,6 +1,6 @@
 <script>
-import LoginForm from '@/components/Auth/LoginForm.vue';
-import OfficialLogo from '@/components/OfficialLogo.vue';
+import LoginForm from '@/components/Auth/LoginForm.vue'
+import OfficialLogo from '@/components/OfficialLogo.vue'
 
 export default {
   name: 'LoginView',
@@ -8,7 +8,7 @@ export default {
     LoginForm,
     OfficialLogo,
   },
-};
+}
 </script>
 <template>
   <div>

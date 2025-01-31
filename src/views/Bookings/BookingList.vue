@@ -1,13 +1,12 @@
 <script>
 import MazTabs from 'maz-ui/components/MazTabs'
-import { useForm } from 'laravel-precognition-vue';
+import { useForm } from 'laravel-precognition-vue'
 import MazTabsBar from 'maz-ui/components/MazTabsBar'
 import NoBookingsFound from '@/assets/no-bookings-found.png'
 import MazTabsContent from 'maz-ui/components/MazTabsContent'
 import MazTabsContentItem from 'maz-ui/components/MazTabsContentItem'
 import BookingDetailsCard from '@/components/Bookings/BookingDetailsCard.vue'
 import BookingCardSkeleton from '@/components/Bookings/BookingCardSkeleton.vue'
-
 
 export default {
   name: 'BookingList',
@@ -29,37 +28,45 @@ export default {
       currentTab: 1,
       form: useForm('get', '/bookings', {}),
       notFound: NoBookingsFound,
-    };
+    }
   },
   mounted() {
-    this.fetchBookings();
+    this.fetchBookings()
   },
   methods: {
     fetchBookings() {
       this.form.submit().then((response) => {
-        const bookings = response.data.data;
+        const bookings = response.data.data
 
         // Ongoing bookings
         this.tabs[0].bookings = bookings.filter((booking) => {
-          const status = booking.request_status?.toLowerCase();
-          return status !== 'pending' && status !== 'completed';
-        });
+          const status = booking.request_status?.toLowerCase()
+          return status !== 'pending' && status !== 'completed'
+        })
 
         // ongoing bookings
-        this.tabs[2].bookings = bookings.filter((booking) => booking.request_status?.toLowerCase() == 'pending');
+        this.tabs[2].bookings = bookings.filter(
+          (booking) => booking.request_status?.toLowerCase() == 'pending',
+        )
 
         // completed bookings
-        this.tabs[2].bookings = bookings.filter((booking) => booking.request_status?.toLowerCase() == 'completed');
-      });
-    }
+        this.tabs[2].bookings = bookings.filter(
+          (booking) => booking.request_status?.toLowerCase() == 'completed',
+        )
+      })
+    },
   },
-};
+}
 </script>
 
 <template>
   <MazTabs v-model="currentTab">
-    <MazTabsBar :items="tabs" :persistent="true" :block="true"
-      class="rounded-pill justify-content-between p-0 booking-tabs">
+    <MazTabsBar
+      :items="tabs"
+      :persistent="true"
+      :block="true"
+      class="rounded-pill justify-content-between p-0 booking-tabs"
+    >
       <template #default="{ item }">
         <div :class="['flex-grow-1', 'py-3', 'bg-primary']">
           {{ item.label }}
@@ -72,7 +79,13 @@ export default {
         <BookingCardSkeleton></BookingCardSkeleton>
       </template>
       <template v-else>
-        <MazTabsContentItem v-for="(tab, index) in tabs" :tab="tab.id" :id="tab.id" :key="index" class="py-4">
+        <MazTabsContentItem
+          v-for="(tab, index) in tabs"
+          :tab="tab.id"
+          :id="tab.id"
+          :key="index"
+          class="py-4"
+        >
           <template v-if="tab.bookings.length > 0">
             <template v-for="(booking, bookingIndex) in tab.bookings" :key="bookingIndex">
               <BookingDetailsCard :booking="booking" />

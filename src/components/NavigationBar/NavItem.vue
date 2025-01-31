@@ -6,7 +6,7 @@ export default {
       type: Object,
     },
   },
-};
+}
 </script>
 <template>
   <li class="nav-item">

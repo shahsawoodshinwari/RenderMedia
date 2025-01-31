@@ -1,7 +1,7 @@
 <script>
-import { useToast } from "vue-toastification";
+import { useToast } from 'vue-toastification'
 import { useUserStore } from '@/stores/userStore'
-import { useForm } from 'laravel-precognition-vue';
+import { useForm } from 'laravel-precognition-vue'
 import MazInputCode from 'maz-ui/components/MazInputCode'
 
 export default {
@@ -16,7 +16,7 @@ export default {
       }),
       resendCodeForm: useForm('post', '/email/resend', {}),
       toast: useToast(),
-    };
+    }
   },
   computed: {
     userFullName() {
@@ -30,27 +30,33 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.form.submit().then(() => {
-        // mark the user as verified
-        const userStore = useUserStore()
-        userStore.updateVerifiedStatus(true)
+      this.form
+        .submit()
+        .then(() => {
+          // mark the user as verified
+          const userStore = useUserStore()
+          userStore.updateVerifiedStatus(true)
 
-        // redirect to home screen
-        this.$router.push({ name: 'home' })
-      }).catch(error => {
-        console.log(error);
-      });
+          // redirect to home screen
+          this.$router.push({ name: 'home' })
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     },
     resendCode() {
-      if (this.resendCodeForm.processing) return;
-      this.resendCodeForm.submit().then((response) => {
-        this.toast.success(response.data.message);
-      }).catch((error) => {
-        console.log(error.response.data.message);
-      })
+      if (this.resendCodeForm.processing) return
+      this.resendCodeForm
+        .submit()
+        .then((response) => {
+          this.toast.success(response.data.message)
+        })
+        .catch((error) => {
+          console.log(error.response.data.message)
+        })
     },
   },
-};
+}
 </script>
 <template>
   <form @submit.prevent="onSubmit" class="row justify-content-center g-3">
@@ -77,7 +83,11 @@ export default {
     <div class="col-12 text-center">
       <a type="button" @click="resendCode" :disabled="resendCodeForm.processing" class="btn-card">
         <span>RESEND CODE</span>
-        <div v-if="resendCodeForm.processing" class="spinner-border spinner-border-sm ms-2" role="status">
+        <div
+          v-if="resendCodeForm.processing"
+          class="spinner-border spinner-border-sm ms-2"
+          role="status"
+        >
           <span class="visually-hidden">Loading...</span>
         </div>
       </a>
