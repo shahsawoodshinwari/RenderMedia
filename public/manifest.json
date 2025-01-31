@@ -114,6 +114,34 @@
           "sizes": "512x512"
         }
       ]
+    },
+    {
+      "name": "Bookings List",
+      "short_name": "Bookings",
+      "url": "/RenderMedia",
+      "description": "Bookings List screen",
+      "icons": [
+        {
+          "src": "./shortcuts/bookings/512x512.svg",
+          "type": "image/svg+xml",
+          "sizes": "any"
+        },
+        {
+          "src": "./shortcuts/bookings/192x192.png",
+          "type": "image/png",
+          "sizes": "192x192"
+        },
+        {
+          "src": "./shortcuts/bookings/256x256.png",
+          "type": "image/png",
+          "sizes": "256x256"
+        },
+        {
+          "src": "./shortcuts/bookings/512x512.png",
+          "type": "image/png",
+          "sizes": "512x512"
+        }
+      ]
     }
   ]
 }
