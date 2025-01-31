@@ -1,11 +1,16 @@
 <script>
 import { useForm } from 'laravel-precognition-vue';
+import MazLazyImg from 'maz-ui/components/MazLazyImg';
 import { useBookingStore } from '@/stores/bookingStore';
 import { useCategoriesStore } from '@/stores/categoriesStore';
 import { useBookingFormStepsStore } from '@/stores/bookingFormSteps';
 
 export default {
   name: 'CategoryIndex',
+
+  components: {
+    MazLazyImg,
+  },
 
   data() {
     return {
@@ -79,7 +84,7 @@ export default {
     <template v-else>
       <div :class="[isFullSize(index) ? 'col-12' : 'col-6']" @click="next(item.id)" v-for="(item, index) in categories"
         :key="index">
-        <img :src="item.cover" class="img-fluid w-100 rounded-4 mb-1" loading="lazy" :alt="item.name" />
+        <MazLazyImg :src="item.cover" img-class="img-fluid w-100 rounded-4 mb-1" block :alt="item.name" />
         <div class="text-center text-truncated">
           {{ item.name }}
         </div>

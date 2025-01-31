@@ -1,5 +1,5 @@
 <script>
-import NavigationBar from '@/components/NavigationBar/NavigaionBar.vue';
+import NavigationBar from '@/components/NavigationBar/NavigationBar.vue';
 import TopNavigationBar from '@/components/TopNavigationBar.vue'
 
 export default {

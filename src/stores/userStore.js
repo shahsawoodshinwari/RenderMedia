@@ -44,17 +44,7 @@ export const useUserStore = defineStore('user', {
     },
 
     logout() {
-      this.id = null
-      this.first_name = ''
-      this.last_name = ''
-      this.name = ''
-      this.email = ''
-      this.phone = ''
-      this.gender = ''
-      this.dob = null
-      this.verified = false
-      this.token = ''
-      this.image = ''
+      this.$reset()
     },
   },
 
