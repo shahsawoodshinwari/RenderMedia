@@ -90,7 +90,7 @@
   "shortcuts": [
     {
       "name": "Home",
-      "url": "/RenderMedia",
+      "url": "/",
       "description": "Home screen",
       "icons": [
         {
@@ -118,7 +118,7 @@
     {
       "name": "Bookings List",
       "short_name": "Bookings",
-      "url": "/RenderMedia",
+      "url": "/bookings",
       "description": "Bookings List screen",
       "icons": [
         {
