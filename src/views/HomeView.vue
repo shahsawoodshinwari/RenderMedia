@@ -1,6 +1,5 @@
 <script>
 import metaData from '@/meta/home'
-import { useHead } from '@vueuse/head'
 import ShootingType from '@/components/Bookings/ShootingType.vue'
 import CategoryList from '../components/Category/CategoryIndex.vue'
 import { useBookingFormStepsStore } from '@/stores/bookingFormSteps'
@@ -13,6 +12,9 @@ export default {
     ShootingType,
     FilmingLocation,
   },
+  head: {
+    ...metaData,
+  },
   data() {
     return {
       currentTab: 'CategoryList',
@@ -21,11 +23,6 @@ export default {
   computed: {
     bookingFormSteps() {
       return useBookingFormStepsStore()
-    },
-  },
-  methods: {
-    metaData() {
-      useHead(metaData)
     },
   },
 }

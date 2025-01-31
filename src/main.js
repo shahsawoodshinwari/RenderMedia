@@ -5,7 +5,6 @@ import './assets/styles/main.scss'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import Toast from 'vue-toastification'
-import { createHead } from '@vueuse/head'
 import { client } from 'laravel-precognition-vue'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
@@ -22,9 +21,6 @@ pinia.use(piniaPluginPersistedstate)
 
 // register router
 app.use(router)
-
-// register head & meta tags modifier
-app.use(createHead())
 
 // register state management library
 app.use(pinia)

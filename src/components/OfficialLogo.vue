@@ -35,6 +35,12 @@ export default {
 
 <template>
   <RouterLink :to="{ name: 'home' }" class="rounded-0 bg-transparent">
-    <img :src="logo" class="img-fluid" :width="width" :height="width" alt="Render Media Official Logo" />
+    <img
+      :src="logo"
+      class="img-fluid"
+      :width="width"
+      :height="width"
+      alt="Render Media Official Logo"
+    />
   </RouterLink>
 </template>

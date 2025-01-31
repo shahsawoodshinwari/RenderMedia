@@ -1,5 +1,6 @@
 export default {
   title: 'Explore Videography Tools - Edit, Record, Create',
+  titleTemplate: null,
   meta: [
     {
       name: 'description',
