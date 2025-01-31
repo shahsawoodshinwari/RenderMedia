@@ -51,6 +51,7 @@ export default {
           name="email"
           :class="{ 'is-invalid': form.invalid('email') }"
           placeholder="Email address"
+          autocomplete="email"
         />
         <span class="position-absolute top-50 end-px-7 translate-middle">
           <svg

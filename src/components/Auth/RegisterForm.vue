@@ -45,10 +45,12 @@ export default {
     <div class="col-12">
       <input
         v-model="form.first_name"
+        name="first_name"
         @input="form.validate('first_name')"
         class="form-control"
         :class="{ 'is-invalid': form.invalid('first_name') }"
         placeholder="First Name"
+        autocomplete="given-name"
       />
       <div v-if="form.invalid('first_name')" class="invalid-feedback">
         {{ form.errors.first_name }}
@@ -59,10 +61,12 @@ export default {
     <div class="col-12">
       <input
         v-model="form.last_name"
+        name="last_name"
         @input="form.validate('last_name')"
         class="form-control"
         :class="{ 'is-invalid': form.invalid('last_name') }"
         placeholder="Last Name"
+        autocomplete="family-name"
       />
       <div v-if="form.invalid('last_name')" class="invalid-feedback">
         {{ form.errors.last_name }}
@@ -73,10 +77,12 @@ export default {
     <div class="col-12">
       <input
         v-model="form.email"
+        name="email"
         @input="form.validate('email')"
         class="form-control"
         :class="{ 'is-invalid': form.invalid('email') }"
         placeholder="Email"
+        autocomplete="email"
       />
       <div v-if="form.invalid('email')" class="invalid-feedback">
         {{ form.errors.email }}
@@ -87,10 +93,12 @@ export default {
     <div class="col-12">
       <input
         v-model="form.phone"
+        name="phone"
         @input="form.validate('phone')"
         class="form-control"
         :class="{ 'is-invalid': form.invalid('phone') }"
         placeholder="Phone No"
+        autocomplete="mobile"
       />
       <div v-if="form.invalid('phone')" class="invalid-feedback">
         {{ form.errors.phone }}
@@ -101,6 +109,7 @@ export default {
     <div class="col-12">
       <select
         v-model="form.gender"
+        name="gender"
         @change="form.validate('gender')"
         class="form-select"
         :class="{ 'is-invalid': form.invalid('gender') }"
@@ -120,10 +129,12 @@ export default {
       <input
         type="password"
         v-model="form.password"
+        name="password"
         @input="form.validate('password')"
         class="form-control"
         :class="{ 'is-invalid': form.invalid('password') }"
         placeholder="Password"
+        autocomplete="new-password"
       />
       <div v-if="form.invalid('password')" class="invalid-feedback">
         {{ form.errors.password }}
@@ -135,10 +146,12 @@ export default {
       <input
         type="password"
         v-model="form.password_confirmation"
+        name="password_confirmation"
         @input="form.validate('password_confirmation')"
         class="form-control"
         :class="{ 'is-invalid': form.invalid('password_confirmation') }"
         placeholder="Password Confirmation"
+        autocomplete="new-password"
       />
       <div v-if="form.invalid('password_confirmation')" class="invalid-feedback">
         {{ form.errors.password_confirmation }}
@@ -150,6 +163,7 @@ export default {
       <div class="form-check">
         <input
           class="form-check-input"
+          name="privacy"
           :class="{ 'is-invalid': form.invalid('privacy') }"
           v-model="form.privacy"
           @change="form.validate('privacy')"
