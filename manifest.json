@@ -95,7 +95,8 @@
       "icons": [
         {
           "src": "./shortcuts/home/512x512.svg",
-          "type": "image/svg+xml"
+          "type": "image/svg+xml",
+          "sizes": "any"
         },
         {
           "src": "./shortcuts/home/192x192.png",
