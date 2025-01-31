@@ -3,6 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "type": "module",
+  "homepage": "https://github.com/shahsawoodshinwari/RenderMedia",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -11,7 +12,7 @@
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
     "serve": "vite preview",
-    "deploy": "npm run build && touch build/CNAME && echo m.renderrmedia.com > build/CNAME && gh-pages -d build"
+    "deploy": "npm run build && touch build/CNAME && echo m.renderrmedia.com > build/CNAME && cp build/index.html build/404.html && gh-pages -d build"
   },
   "dependencies": {
     "@simplewebauthn/browser": "^13.1.0",
