@@ -25,7 +25,30 @@ export default defineConfig({
               },
             },
           },
+          {
+            urlPattern: /\/bookings/,
+            handler: 'NetworkFirst',
+            options: {
+              cacheName: 'bookings-cache',
+              expiration: {
+                maxEntries: 10, // Cache up to 10 responses
+              },
+            },
+          },
         ],
+        backgroundSync: {
+          name: 'bookings-sync-queue',
+          options: {
+            maxRetentionTime: 24 * 60, // Retry for 24 hours if offline
+          },
+          queues: [
+            {
+              name: 'bookings-sync-queue',
+              urlPattern: /\/bookings/,
+              method: 'GET',
+            },
+          ],
+        },
       },
       devOptions: {
         enabled: false,

@@ -1,4 +1,4 @@
-const CACHE_VERSION = 'v1.0.0.0'
+const CACHE_VERSION = 'v2'
 const CACHE_NAME = `pwa-cache-${CACHE_VERSION}`
 const OFFLINE_PAGE = '/offline' // Updated route
 
@@ -75,6 +75,30 @@ self.addEventListener('fetch', (event) => {
     return
   }
 
+  // API Calls: Cache the bookings data and serve it offline
+  if (request.url.includes('/bookings')) {
+    event.respondWith(
+      caches.match(request).then((cachedResponse) => {
+        if (cachedResponse) {
+          return cachedResponse
+        }
+        return fetch(request)
+          .then((response) => {
+            const clonedResponse = response.clone()
+            caches.open(CACHE_NAME).then((cache) => {
+              cache.put(request, clonedResponse)
+            })
+            return response
+          })
+          .catch(async () => {
+            const cache = await caches.open(CACHE_NAME)
+            return cache.match(request) // Fallback to cached version when offline
+          })
+      }),
+    )
+    return
+  }
+
   // Default: NetworkFirst strategy
   event.respondWith(
     fetch(request)
@@ -90,4 +114,24 @@ self.addEventListener('fetch', (event) => {
         return cache.match(request)
       }),
   )
+})
+
+// Background Sync for Downloading Data when App is Closed or Offline
+self.addEventListener('sync', (event) => {
+  if (event.tag === 'sync-bookings') {
+    event.waitUntil(
+      fetch('/bookings')
+        .then((response) => response.json())
+        .then((data) => {
+          // Do something with the bookings data here
+          // For example, update the cache or send the data to the server
+          caches.open(CACHE_NAME).then((cache) => {
+            cache.put('/bookings', new Response(JSON.stringify(data)))
+          })
+        })
+        .catch((error) => {
+          console.error('Background Sync failed:', error)
+        }),
+    )
+  }
 })
