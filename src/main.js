@@ -11,6 +11,7 @@ import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 import App from './App.vue'
 import router from './router'
 import axiosInstance from './libs/axios'
+import RouterMixin from './mixins/router'
 
 client.use(axiosInstance)
 
@@ -31,6 +32,8 @@ app.use(Toast, {
   icon: false,
   hideProgressBar: true,
 })
+
+app.mixin(RouterMixin)
 
 // install the vue app
 app.mount('#app')

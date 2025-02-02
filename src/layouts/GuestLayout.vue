@@ -1,5 +1,15 @@
+<script>
+import OfflineIndicator from '@/components/OfflineIndicator.vue'
+export default {
+  components: {
+    OfflineIndicator,
+  },
+}
+</script>
+
 <template>
   <div class="container-fluid px-0 d-flex flex-column svh-100 align-items-center">
+    <OfflineIndicator />
     <main class="flex-grow-1 container px-3">
       <RouterView />
     </main>

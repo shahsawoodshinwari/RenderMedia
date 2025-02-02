@@ -9,6 +9,18 @@ const routes = [
     component: () => import('../layouts/GuestLayout.vue'),
     children: [
       {
+        path: 'become-freelancer',
+        name: 'freelancer.become',
+        component: () => import('../views/Auth/BecomeFreelancerView.vue'),
+        beforeEnter: [guestGuard],
+      },
+      {
+        path: 'email/verify',
+        name: 'email.verify',
+        component: () => import('../views/Auth/VerifyView.vue'),
+        beforeEnter: [authGuard],
+      },
+      {
         path: 'login',
         name: 'auth.login',
         component: () => import('../views/Auth/LoginView.vue'),
@@ -19,12 +31,6 @@ const routes = [
         name: 'auth.register',
         component: () => import('../views/Auth/RegisterView.vue'),
         beforeEnter: [guestGuard],
-      },
-      {
-        path: 'email/verify',
-        name: 'email.verify',
-        component: () => import('../views/Auth/VerifyView.vue'),
-        beforeEnter: [authGuard],
       },
     ],
   },

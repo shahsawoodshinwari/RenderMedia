@@ -4,10 +4,10 @@ import Image from '@/assets/404.webp'
 export default {
   computed: {
     image() {
-      return Image;
+      return Image
     },
   },
-};
+}
 </script>
 <template>
   <div class="container text-center py-5">

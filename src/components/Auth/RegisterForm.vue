@@ -185,7 +185,7 @@ export default {
       </button>
     </div>
 
-    <div class="col-12 text-center">
+    <div class="col-12 text-center" v-if="routeExists('auth.login')">
       Already a Member? <RouterLink :to="{ name: 'auth.login' }">Login</RouterLink>
     </div>
   </form>
