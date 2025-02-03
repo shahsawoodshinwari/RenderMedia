@@ -21,6 +21,8 @@ export default {
     this.specialitiesForm.submit()
       .then((response) => {
         const specialities = response.data.data;
+
+        // filter out options that contains the word Other
         this.specialities = specialities.filter(
           (speciality) => speciality.name?.toLowerCase() != 'other'
         )
@@ -69,7 +71,7 @@ export default {
     <!-- Speciality -->
     <div class="col-12">
       <select v-model="form.speciality" name="speciality" @change="form.validate('speciality')" class="form-select"
-        :class="{ 'is-invalid': form.invalid('speciality') }" :disabled="specialitiesForm.processing">
+        :class="{ 'is-invalid': form.invalid('speciality'), 'loading': specialitiesForm.processing }">
         <option value="">Select Speciality</option>
         <option v-for="speciality in specialities" :key="speciality.id">
           {{ speciality.name }}
@@ -109,3 +111,12 @@ export default {
     </div>
   </form>
 </template>
+
+<style>
+.form-select.loading {
+  --bs-form-select-bg-img: url("../../assets/loader.gif");
+  background-size: 20px 20px;
+  backdrop-filter: hue-rotate(-141deg);
+  -webkit-backdrop-filter: hue-rotate(-141deg);
+}
+</style>
