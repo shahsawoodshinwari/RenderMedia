@@ -96,26 +96,27 @@ export default {
       </div>
     </div>
 
-    <!-- Remember me -->
     <div class="col-12">
-      <div class="form-check d-flex gap-3 justify-content-end">
-        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-        <label class="form-check-label" for="flexCheckDefault"> Remember Me </label>
+      <!-- Remember me -->
+      <div class="d-flex justify-content-between flex-wrap gap-3">
+        <div class="form-check d-flex gap-3 justify-content-end">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+          <label class="form-check-label" for="flexCheckDefault"> Remember Me </label>
+        </div>
+
+        <!-- Forgot Password -->
+        <RouterLink :to="{ name: 'password.request' }" class="text-end">Forgot Password?</RouterLink>
       </div>
     </div>
 
     <!-- Login -->
     <div class="col-8">
-      <button class="btn btn-primary w-100" :disabled="form.processing">
+      <button class="btn btn-primary w-100 text-uppercase" :disabled="form.processing">
         <div v-if="form.processing" class="spinner-border spinner-border-sm" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
         <span v-else>Login</span>
       </button>
-    </div>
-
-    <div class="col-12 text-center" v-if="routeExists('auth.register')">
-      New Member? <RouterLink :to="{ name: 'auth.register' }">Create Account</RouterLink>
     </div>
   </form>
 </template>

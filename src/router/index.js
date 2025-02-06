@@ -32,6 +32,12 @@ const routes = [
         component: () => import('../views/Auth/RegisterView.vue'),
         beforeEnter: [guestGuard],
       },
+      {
+        path: 'forgot-password',
+        name: 'password.request',
+        component: () => import('../views/Auth/RegisterView.vue'),
+        beforeEnter: [guestGuard],
+      },
     ],
   },
   {

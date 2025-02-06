@@ -11,13 +11,15 @@ export default {
 }
 </script>
 <template>
-  <div>
-    <div class="text-center mb-4">
-      <OfficialLogo />
-      <h1 class="text-uppercase fw-bold">Singup to Find Your Work</h1>
-      <p class="w-75 mx-auto">Discover your passion and forge a meaningful career path by siging up to find work you
-        love &dash; where your aspirations meet opportunity.</p>
+  <div class="row justify-content-center g-3 h-100 align-items-center">
+    <div class="col-md-6 col-lg-5 col-xl-4">
+      <div class="text-center mb-4">
+        <OfficialLogo />
+        <h1 class="text-uppercase fw-bold">Singup to Find Your Work</h1>
+        <p class="w-75 mx-auto">Discover your passion and forge a meaningful career path by siging up to find work you
+          love &dash; where your aspirations meet opportunity.</p>
+      </div>
+      <BecomeFreelancerForm />
     </div>
-    <BecomeFreelancerForm />
   </div>
 </template>
