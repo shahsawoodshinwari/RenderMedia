@@ -18,23 +18,20 @@ export default {
     }
   },
   mounted() {
-    this.specialitiesForm.submit()
-      .then((response) => {
-        const specialities = response.data.data;
+    this.specialitiesForm.submit().then((response) => {
+      const specialities = response.data.data
 
-        // filter out options that contains the word Other
-        this.specialities = specialities.filter(
-          (speciality) => speciality.name?.toLowerCase() != 'other'
-        )
-      });
+      // filter out options that contains the word Other
+      this.specialities = specialities.filter(
+        (speciality) => speciality.name?.toLowerCase() != 'other',
+      )
+    })
   },
   methods: {
     onSubmit() {
-      this.form
-        .submit()
-        .catch((error) => {
-          console.log(error)
-        })
+      this.form.submit().catch((error) => {
+        console.log(error)
+      })
     },
   },
 }
@@ -43,8 +40,15 @@ export default {
   <form @submit.prevent="onSubmit" class="row justify-content-center g-3">
     <!-- First name -->
     <div class="col-12">
-      <input v-model="form.first_name" name="first_name" @change="form.validate('first_name')" class="form-control"
-        :class="{ 'is-invalid': form.invalid('first_name') }" placeholder="First Name" autocomplete="given-name" />
+      <input
+        v-model="form.first_name"
+        name="first_name"
+        @change="form.validate('first_name')"
+        class="form-control"
+        :class="{ 'is-invalid': form.invalid('first_name') }"
+        placeholder="First Name"
+        autocomplete="given-name"
+      />
       <div v-if="form.invalid('first_name')" class="invalid-feedback">
         {{ form.errors.first_name }}
       </div>
@@ -52,8 +56,15 @@ export default {
 
     <!-- Last Name -->
     <div class="col-12">
-      <input v-model="form.last_name" name="last_name" @change="form.validate('last_name')" class="form-control"
-        :class="{ 'is-invalid': form.invalid('last_name') }" placeholder="Last Name" autocomplete="family-name" />
+      <input
+        v-model="form.last_name"
+        name="last_name"
+        @change="form.validate('last_name')"
+        class="form-control"
+        :class="{ 'is-invalid': form.invalid('last_name') }"
+        placeholder="Last Name"
+        autocomplete="family-name"
+      />
       <div v-if="form.invalid('last_name')" class="invalid-feedback">
         {{ form.errors.last_name }}
       </div>
@@ -61,8 +72,15 @@ export default {
 
     <!-- Phone -->
     <div class="col-12">
-      <input v-model="form.phone" name="phone" @change="form.validate('phone')" class="form-control"
-        :class="{ 'is-invalid': form.invalid('phone') }" placeholder="Phone No" autocomplete="mobile" />
+      <input
+        v-model="form.phone"
+        name="phone"
+        @change="form.validate('phone')"
+        class="form-control"
+        :class="{ 'is-invalid': form.invalid('phone') }"
+        placeholder="Phone No"
+        autocomplete="mobile"
+      />
       <div v-if="form.invalid('phone')" class="invalid-feedback">
         {{ form.errors.phone }}
       </div>
@@ -70,8 +88,13 @@ export default {
 
     <!-- Speciality -->
     <div class="col-12">
-      <select v-model="form.speciality" name="speciality" @change="form.validate('speciality')" class="form-select"
-        :class="{ 'is-invalid': form.invalid('speciality'), 'loading': specialitiesForm.processing }">
+      <select
+        v-model="form.speciality"
+        name="speciality"
+        @change="form.validate('speciality')"
+        class="form-select"
+        :class="{ 'is-invalid': form.invalid('speciality'), loading: specialitiesForm.processing }"
+      >
         <option value="">Select Speciality</option>
         <option v-for="speciality in specialities" :key="speciality.id">
           {{ speciality.name }}
@@ -84,8 +107,14 @@ export default {
 
     <!-- Experience -->
     <div class="col-12">
-      <input v-model="form.experience" name="experience" @change="form.validate('experience')" class="form-control"
-        :class="{ 'is-invalid': form.invalid('experience') }" placeholder="Experience in years" />
+      <input
+        v-model="form.experience"
+        name="experience"
+        @change="form.validate('experience')"
+        class="form-control"
+        :class="{ 'is-invalid': form.invalid('experience') }"
+        placeholder="Experience in years"
+      />
       <div v-if="form.invalid('experience')" class="invalid-feedback">
         {{ form.errors.experience }}
       </div>
@@ -93,8 +122,15 @@ export default {
 
     <!-- Portfolio -->
     <div class="col-12">
-      <input type="url" v-model="form.portfolio" name="portfolio" @change="form.validate('portfolio')"
-        class="form-control" :class="{ 'is-invalid': form.invalid('portfolio') }" placeholder="Portfolio Link" />
+      <input
+        type="url"
+        v-model="form.portfolio"
+        name="portfolio"
+        @change="form.validate('portfolio')"
+        class="form-control"
+        :class="{ 'is-invalid': form.invalid('portfolio') }"
+        placeholder="Portfolio Link"
+      />
       <div v-if="form.invalid('portfolio')" class="invalid-feedback">
         {{ form.errors.portfolio }}
       </div>
@@ -114,7 +150,7 @@ export default {
 
 <style>
 .form-select.loading {
-  --bs-form-select-bg-img: url("../../assets/loader.gif");
+  --bs-form-select-bg-img: url('../../assets/loader.gif');
   background-size: 20px 20px;
   backdrop-filter: hue-rotate(-141deg);
   -webkit-backdrop-filter: hue-rotate(-141deg);
