@@ -1,16 +1,19 @@
 <script>
-import NavigationBar from '@/components/NavigationBar/NavigationBar.vue'
+import OfflineIndicator from '@/components/OfflineIndicator.vue'
 import TopNavigationBar from '@/components/TopNavigationBar.vue'
+import NavigationBar from '@/components/NavigationBar/NavigationBar.vue'
 
 export default {
   components: {
     NavigationBar,
     TopNavigationBar,
+    OfflineIndicator,
   },
 }
 </script>
 <template>
   <div class="container-fluid px-0 d-flex flex-column svh-100 align-items-center">
+    <OfflineIndicator />
     <TopNavigationBar />
     <main class="flex-grow-1 container px-3">
       <RouterView />
