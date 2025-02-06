@@ -77,9 +77,18 @@ export default {
 
     <!-- Show Categories -->
     <template v-else>
-      <div class="col-6 col-md-4 col-lg-3 col-xxl-2 cursor-pointer" @click="next(item.id)"
-        v-for="(item, index) in categories" :key="index">
-        <MazLazyImg :src="item.cover" img-class="img-fluid w-100 rounded-4 mb-1" block :alt="item.name" />
+      <div
+        class="col-6 col-md-4 col-lg-3 col-xxl-2 cursor-pointer"
+        @click="next(item.id)"
+        v-for="(item, index) in categories"
+        :key="index"
+      >
+        <MazLazyImg
+          :src="item.cover"
+          img-class="img-fluid w-100 rounded-4 mb-1"
+          block
+          :alt="item.name"
+        />
         <div class="text-center text-truncated">
           {{ item.name }}
         </div>
