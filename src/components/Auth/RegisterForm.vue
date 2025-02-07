@@ -6,7 +6,7 @@ import { useForm } from 'laravel-precognition-vue'
 export default {
   name: 'RegisterForm',
   components: {
-    MaskNumber:MaskInput,
+    MaskNumber: MaskInput,
   },
   data() {
     return {

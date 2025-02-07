@@ -1,6 +1,6 @@
 <script>
-import RegisterForm from '@/components/Auth/RegisterForm.vue'
 import OfficialLogo from '@/components/OfficialLogo.vue'
+import RegisterForm from '@/components/Auth/RegisterForm.vue'
 
 export default {
   name: 'RegisterView',

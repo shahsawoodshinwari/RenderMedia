@@ -5,8 +5,9 @@ import { useForm } from 'laravel-precognition-vue'
 export default {
   name: 'BecomeFreelancerForm',
   components: {
-    MaskNumber:MaskInput,
+    MaskNumber: MaskInput,
   },
+  emits: ['become-freelancer-success'],
   data() {
     return {
       form: useForm('post', '/become-freelancer', {
@@ -33,9 +34,14 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.form.submit().catch((error) => {
-        console.log(error)
-      })
+      this.form
+        .submit()
+        .then((response) => {
+          this.$emit('become-freelancer-success', response.data)
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     },
   },
 }

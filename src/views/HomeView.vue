@@ -29,5 +29,7 @@ export default {
 </script>
 
 <template>
-  <Component :is="bookingFormSteps.currentTab" />
+  <KeepAlive>
+    <Component :is="bookingFormSteps.currentTab" />
+  </KeepAlive>
 </template>
