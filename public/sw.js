@@ -1,21 +1,62 @@
-const CACHE_VERSION = 'v2'
+const CACHE_VERSION = 'v3'
 const CACHE_NAME = `pwa-cache-${CACHE_VERSION}`
 const OFFLINE_PAGE = '/offline' // Updated route
 
 // Pre-cache static assets and offline page
+const ASSETS_REGEX = /\/assets\/.*/
+
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then((cache) =>
-      cache.addAll([
-        OFFLINE_PAGE, // Change to the new route
-        '/favicon.ico',
-        '/robots.txt',
-        '/apple-touch-icon.png',
-      ]),
-    ),
+    caches.open(CACHE_NAME).then((cache) => {
+      // Add static assets to cache
+      return cache
+        .addAll([
+          '/offline.html', // Offline page
+          '/favicon.ico',
+          '/robots.txt',
+          '/apple-touch-icon.png',
+        ])
+        .then(() => {
+          // Fetch and cache assets matching the regex
+          return fetchAndCacheMatchingAssets(cache, ASSETS_REGEX)
+        })
+    }),
   )
   self.skipWaiting() // Force activation of the new service worker
 })
+
+// Function to fetch and cache assets matching a regex
+function fetchAndCacheMatchingAssets(cache, regex) {
+  return fetch('/') // Fetch the root HTML or a sitemap
+    .then((response) => response.text())
+    .then((html) => {
+      // Extract asset URLs from the HTML (or other sources)
+      const assetUrls = extractAssetUrls(html, regex)
+      return Promise.all(
+        assetUrls.map((url) =>
+          fetch(url)
+            .then((response) => {
+              if (response.ok) {
+                return cache.put(url, response) // Cache the asset
+              }
+            })
+            .catch((error) => {
+              console.error(`Failed to cache ${url}:`, error)
+            }),
+        ),
+      )
+    })
+}
+
+// Function to extract asset URLs from HTML (or other sources)
+function extractAssetUrls(html, regex) {
+  const urls = []
+  const matches = html.matchAll(regex)
+  for (const match of matches) {
+    urls.push(match[0])
+  }
+  return urls
+}
 
 // Remove old caches during activation
 self.addEventListener('activate', (event) => {
