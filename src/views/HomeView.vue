@@ -1,5 +1,5 @@
 <script>
-import metaData from '@/meta/home'
+import metaData from '@/seo/home'
 import ShootingType from '@/components/Bookings/ShootingType.vue'
 import CategoryList from '../components/Category/CategoryIndex.vue'
 import { useBookingFormStepsStore } from '@/stores/bookingFormSteps'

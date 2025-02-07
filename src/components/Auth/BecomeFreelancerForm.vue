@@ -1,8 +1,12 @@
 <script>
+import { MaskInput } from 'vue-3-mask'
 import { useForm } from 'laravel-precognition-vue'
 
 export default {
   name: 'BecomeFreelancerForm',
+  components: {
+    MaskNumber:MaskInput,
+  },
   data() {
     return {
       form: useForm('post', '/become-freelancer', {
@@ -72,12 +76,13 @@ export default {
 
     <!-- Phone -->
     <div class="col-12">
-      <input
+      <MaskNumber
         v-model="form.phone"
         name="phone"
-        @change="form.validate('phone')"
+        @input="form.validate('phone')"
         class="form-control"
         :class="{ 'is-invalid': form.invalid('phone') }"
+        mask="+971 ##-###-####"
         placeholder="Phone No"
         autocomplete="mobile"
       />
