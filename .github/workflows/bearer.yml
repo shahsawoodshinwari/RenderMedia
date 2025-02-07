@@ -22,7 +22,7 @@ jobs:
 
       - name: Run Bearer Scan
         id: report
-        uses: bearer/bearer-action@v1
+        uses: bearer/bearer-action@v2
         with:
           api-key: ${{ secrets.BEARER_TOKEN }}
           format: sarif
