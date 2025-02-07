@@ -11,7 +11,7 @@ export default {
   },
   data() {
     return {
-      message: 'Thanks for your interest. Our team will get in touch with you shortly.',
+      message: '',
       successImage: successImage,
     }
   },
