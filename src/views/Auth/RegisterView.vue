@@ -15,15 +15,18 @@ export default {
     <div class="col-md-6 col-lg-5 col-xl-4">
       <div class="text-center mb-4">
         <OfficialLogo />
-        <h1 class="text-capitalize fw-bold">sign up to find work</h1>
+        <h1 class="text-capitalize fw-bold">
+          {{ __('register.title') }}
+        </h1>
         <p class="mx-auto">
-          Discover your passion and forge a meaningful career path by signing up to find work you
-          love - where your aspriations meet opportunity.
+          {{ __('register.description') }}
         </p>
       </div>
       <RegisterForm />
       <div class="text-center py-3" v-if="routeExists('freelancer.become')">
-        <RouterLink :to="{ name: 'freelancer.become' }"> Become a Freelancer </RouterLink>
+        <RouterLink :to="{ name: 'freelancer.become' }">
+          {{ __('register.become_freelancer') }}
+        </RouterLink>
       </div>
     </div>
   </div>

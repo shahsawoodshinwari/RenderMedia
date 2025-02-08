@@ -8,6 +8,14 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Noto Sans Arabic';
+  src: url('../assets/fonts/Noto-Sans-Arabic/NotoSansArabic-VariableFont_wdth,wght.ttf')
+    format('ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
 .py-2-5 {
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
@@ -21,3 +29,12 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+html[lang='ar'] {
+  --bs-font-sans-serif: 'Noto Sans Arabic', sans-serif;
+  --bs-body-font-size: 1rem;
+}
+
+html[lang='en'] {
+  --bs-font-sans-serif: 'Roboto', sans-serif;
+}

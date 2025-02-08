@@ -53,7 +53,7 @@ export default {
         @input="form.validate('first_name')"
         class="form-control"
         :class="{ 'is-invalid': form.invalid('first_name') }"
-        placeholder="First Name"
+        :placeholder="__('forms.first_name')"
         autocomplete="given-name"
       />
       <div v-if="form.invalid('first_name')" class="invalid-feedback">
@@ -69,7 +69,7 @@ export default {
         @input="form.validate('last_name')"
         class="form-control"
         :class="{ 'is-invalid': form.invalid('last_name') }"
-        placeholder="Last Name"
+        :placeholder="__('forms.last_name')"
         autocomplete="family-name"
       />
       <div v-if="form.invalid('last_name')" class="invalid-feedback">
@@ -85,7 +85,7 @@ export default {
         @input="form.validate('email')"
         class="form-control"
         :class="{ 'is-invalid': form.invalid('email') }"
-        placeholder="Email"
+        :placeholder="__('forms.email')"
         autocomplete="email"
       />
       <div v-if="form.invalid('email')" class="invalid-feedback">
@@ -102,7 +102,7 @@ export default {
         class="form-control"
         :class="{ 'is-invalid': form.invalid('phone') }"
         mask="+971 ##-###-####"
-        placeholder="Phone No"
+        :placeholder="__('forms.phone')"
         autocomplete="mobile"
       />
       <div v-if="form.invalid('phone')" class="invalid-feedback">
@@ -119,9 +119,9 @@ export default {
         class="form-select"
         :class="{ 'is-invalid': form.invalid('gender') }"
       >
-        <option value="">Select Gender</option>
+        <option value="">{{ __('forms.select_gender') }}</option>
         <option :value="gender.value" v-for="gender in genders" :key="gender.key">
-          {{ gender.value }}
+          {{ __(gender.key) }}
         </option>
       </select>
       <div v-if="form.invalid('gender')" class="invalid-feedback">
@@ -138,7 +138,7 @@ export default {
         @input="form.validate('password')"
         class="form-control"
         :class="{ 'is-invalid': form.invalid('password') }"
-        placeholder="Password"
+        :placeholder="__('forms.password')"
         autocomplete="new-password"
       />
       <div v-if="form.invalid('password')" class="invalid-feedback">
@@ -155,7 +155,7 @@ export default {
         @input="form.validate('password_confirmation')"
         class="form-control"
         :class="{ 'is-invalid': form.invalid('password_confirmation') }"
-        placeholder="Password Confirmation"
+        :placeholder="__('forms.password_confirmation')"
         autocomplete="new-password"
       />
       <div v-if="form.invalid('password_confirmation')" class="invalid-feedback">
@@ -176,7 +176,9 @@ export default {
           value="accepted"
           id="privacy"
         />
-        <label class="form-check-label" for="privacy"> I accept terms & conditions </label>
+        <label class="form-check-label" for="privacy">
+          {{ __('forms.privacy') }}
+        </label>
       </div>
     </div>
 
@@ -186,12 +188,13 @@ export default {
         <div v-if="form.processing" class="spinner-border spinner-border-sm" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
-        <span v-else>SIGN UP</span>
+        <span v-else>{{ __('buttons.sign_up') }}</span>
       </button>
     </div>
 
     <div class="col-12 text-center" v-if="routeExists('auth.login')">
-      Already a Member? <RouterLink :to="{ name: 'auth.login' }">Login</RouterLink>
+      {{ __('register.already_member') }}
+      <RouterLink :to="{ name: 'auth.login' }">{{ __('buttons.login') }}</RouterLink>
     </div>
   </form>
 </template>

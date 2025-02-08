@@ -50,7 +50,7 @@ export default {
           class="form-control pe-5"
           name="email"
           :class="{ 'is-invalid': form.invalid('email') }"
-          placeholder="Email address"
+          :placeholder="__('forms.email_address')"
           autocomplete="email"
         />
         <span class="position-absolute top-50 end-px-7 translate-middle">
@@ -82,7 +82,7 @@ export default {
           name="password"
           :class="{ 'is-invalid': form.invalid('password') }"
           :type="isPasswordVisible ? 'text' : 'password'"
-          placeholder="Password"
+          :placeholder="__('forms.password')"
         />
         <!-- Eye (visible password) -->
         <span
@@ -91,7 +91,7 @@ export default {
           class="position-absolute top-50 end-px-7 cursor-pointer translate-middle"
           role="button"
           tabindex="0"
-          aria-label="Show Password"
+          :aria-label="__('forms.show_password')"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -116,7 +116,7 @@ export default {
           role="button"
           @click="togglePasswordVisibility"
           tabindex="0"
-          aria-label="Hide Password"
+          :aria-label="__('forms.hide_password')"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -148,13 +148,15 @@ export default {
       <div class="d-flex justify-content-between flex-wrap gap-3">
         <div class="form-check d-flex gap-3 justify-content-end">
           <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-          <label class="form-check-label" for="flexCheckDefault"> Remember Me </label>
+          <label class="form-check-label" for="flexCheckDefault">
+            {{ __('login.remember_me') }}
+          </label>
         </div>
 
         <!-- Forgot Password -->
-        <RouterLink :to="{ name: 'password.request' }" class="text-end"
-          >Forgot Password?</RouterLink
-        >
+        <RouterLink :to="{ name: 'password.request' }" class="text-end">{{
+          __('login.forgot_password')
+        }}</RouterLink>
       </div>
     </div>
 
@@ -164,7 +166,9 @@ export default {
         <div v-if="form.processing" class="spinner-border spinner-border-sm" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
-        <span v-else>Login</span>
+        <span v-else>
+          {{ __('buttons.login') }}
+        </span>
       </button>
     </div>
   </form>
