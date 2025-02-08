@@ -31,7 +31,7 @@ export default {
           this.userStore.setUserData(response.data.data)
 
           this.$router.push({ name: 'home' })
-          this.toast.success('Authenticated successfully.')
+          this.toast.success(this.__('login.success'))
         })
         .catch((error) => {
           console.log(error)

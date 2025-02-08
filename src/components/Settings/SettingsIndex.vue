@@ -33,13 +33,13 @@ export default {
 
 <template>
   <div class="main rounded px-4 py-3 d-flex align-items-between flex-column gap-3">
-    <NavLink to="/foo#1" label="Profile" />
-    <NavLink to="/foo#1" label="Change Password" />
-    <NavLink to="/foo#1" label="Terms & Conditions" />
-    <NavLink to="/foo#1" label="About Us" />
-    <NavLink to="/foo#1" label="FAQ" />
-    <NavLink to="/foo#1" label="Contact Us" />
-    <NavLink @click="logout" label="Logout" />
+    <NavLink to="/foo#1" :label="__('settings.profile')" />
+    <NavLink to="/foo#1" :label="__('settings.change_password')" />
+    <NavLink to="/foo#1" :label="__('settings.terms_and_conditions')" />
+    <NavLink to="/foo#1" :label="__('settings.about_us')" />
+    <NavLink to="/foo#1" :label="__('settings.faq')" />
+    <NavLink to="/foo#1" :label="__('settings.contact_us')" />
+    <NavLink @click="logout" :label="__('buttons.logout')" />
   </div>
 </template>
 

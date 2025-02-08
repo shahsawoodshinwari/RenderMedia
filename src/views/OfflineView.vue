@@ -12,8 +12,8 @@ export default {
 
 <template>
   <div class="text-center">
-    <img :src="image" class="img-fluid w-50 mb-3" alt="Offline Image" />
-    <h1>You're offline</h1>
-    <p>Please check your internet connection and try again.</p>
+    <img :src="image" class="img-fluid w-50 mb-3" :alt="__('offline.title')" />
+    <h1>{{ __('offline.title') }}</h1>
+    <p>{{ __('offline.description') }}</p>
   </div>
 </template>

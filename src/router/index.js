@@ -56,7 +56,7 @@ const routes = [
         component: () => import('../views/Bookings/BookingList.vue'),
         beforeEnter: [authGuard, verifiedGuard],
         meta: {
-          title: 'Bookings',
+          title: 'titles.bookings',
         },
       },
       {

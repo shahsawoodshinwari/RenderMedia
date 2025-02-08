@@ -14,7 +14,7 @@ export default {
 <template>
   <div class="sticky-bottom navigation-bar w-100 bg-theme">
     <div class="container py-2 px-4">
-      <ul class="nav nav-pills nav-flush w-100 justify-content-between text-center py-3">
+      <ul class="nav nav-pills nav-flush w-100 justify-content-between text-center px-0 py-3">
         <NavItem :link="{ name: 'home' }">
           <NavIcon>
             <path

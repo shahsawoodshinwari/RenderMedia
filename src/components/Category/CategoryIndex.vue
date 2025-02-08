@@ -60,8 +60,8 @@ export default {
 
 <template>
   <div class="text-center mb-3">
-    <h1 class="fw-medium mb-3">Are You Looking For ?</h1>
-    <p class="mb-0">Are you looking for the key to unlock your next opportunity?</p>
+    <h1 class="fw-medium mb-3">{{ __('categories.title') }}</h1>
+    <p class="mb-0">{{ __('categories.description') }}</p>
   </div>
 
   <div class="row g-3 justify-content-center">
@@ -87,10 +87,10 @@ export default {
           :src="item.cover"
           img-class="img-fluid w-100 rounded-4 mb-1"
           block
-          :alt="item.name"
+          :alt="__(item.name)"
         />
         <div class="text-center text-truncated">
-          {{ item.name }}
+          {{ __(item.name) }}
         </div>
       </div>
     </template>

@@ -19,7 +19,7 @@ export default {
     class="container p-4 pb-3 sticky-top bg-theme d-flex justify-content-between align-items-center"
   >
     <OfficialLogo :cropped="true" width="50" />
-    <h1 v-if="pageTitle" class="mb-0 fs-5 fw-medium">{{ pageTitle }}</h1>
+    <h1 v-if="pageTitle" class="mb-0 fs-5 fw-medium">{{ __(pageTitle) }}</h1>
     <RouterLink to="/notifications" class="text-white">
       <svg
         xmlns="http://www.w3.org/2000/svg"

@@ -1,3 +1,4 @@
+import i18n from '@/i18n'
 import { useUserStore } from '@/stores/userStore'
 import axios from 'axios'
 import { useRouter } from 'vue-router'
@@ -8,6 +9,7 @@ const axiosInstance = axios.create({
   baseURL: import.meta.env.VITE_API_URL,
   headers: {
     'X-API-Key': import.meta.env.VITE_API_KEY,
+    LOCALE: i18n.global.locale,
   },
   withCredentials: false,
 })

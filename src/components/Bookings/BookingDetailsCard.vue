@@ -42,13 +42,13 @@ export default {
       <div class="row g-3 justify-content-end align-items-center">
         <div class="col-6">
           <div class="rounded-pill py-1 px-3 bg-light">
-            <b>Service:</b> {{ booking.category?.title }}
+            <b>{{ __('booking_details.service') }}:</b> {{ booking.category?.title }}
           </div>
         </div>
 
         <div class="col-6">
           <div class="rounded-pill py-1 px-3 bg-light">
-            <b>Short For:</b> {{ booking.sub_category?.title }}
+            <b>{{ __('booking_details.short_for') }}:</b> {{ booking.sub_category?.title }}
           </div>
         </div>
 
@@ -64,13 +64,15 @@ export default {
         </div>
 
         <div class="col-auto fs-small">
-          Booking Id: #{{ booking.booking_id }}
-          <div class="text-danger fw-medium py-1">Request: {{ booking.request_status }}</div>
+          {{ __('booking_details.booking_id') }}: #{{ booking.booking_id }}
+          <div class="text-danger fw-medium py-1">
+            {{ __('booking_details.request_status') }}: {{ booking.request_status }}
+          </div>
         </div>
 
         <div class="col-6">
           <button :class="['btn', 'py-1', 'px-3', 'rounded-pill', 'fs-small', 'btn-primary']">
-            <span>Reschedule</span>
+            <span>{{ __('booking_details.reschedule') }}</span>
           </button>
         </div>
 
@@ -84,7 +86,7 @@ export default {
               paymentClass(booking.payment_status),
             ]"
           >
-            Payment: {{ booking.payment_status }}
+            {{ __('booking_details.payment_status') }}: {{ booking.payment_status }}
           </div>
         </div>
       </div>

@@ -51,7 +51,7 @@ export default {
         !this.payload.sub_category_id ||
         (this.subCategoryDetails && !this.payload.sub_category_details)
       ) {
-        this.toast.error('Please fill in the required fields.')
+        this.toast.error(this.__('forms.fill_all_required_fields'))
         this.isValid = false
 
         return
@@ -67,8 +67,10 @@ export default {
 
 <template>
   <div class="text-center mb-3">
-    <h1 class="fw-medium mb-3">Select a Shoot Type</h1>
-    <p class="mb-0">Are you looking for the key to unlock your</p>
+    <h1 class="fw-medium mb-3">{{ __('shooting_type.title') }}</h1>
+    <p class="mb-0">
+      {{ __('shooting_type.description') }}
+    </p>
   </div>
 
   <div v-if="subCategories.length > 0">
@@ -76,7 +78,7 @@ export default {
       <!-- Shoot Type -->
       <div class="col-12">
         <select v-model="payload.sub_category_id" class="form-select">
-          <option value="">Select shoot type</option>
+          <option value="">{{ __('forms.select_shoot_type') }}</option>
           <option :value="item.id" v-for="(item, index) in subCategories" :key="index">
             {{ item.name }}
           </option>
@@ -89,13 +91,15 @@ export default {
           type="text"
           v-model="payload.sub_category_details"
           class="form-control"
-          placeholder="Please describe the shoot type"
+          :placeholder="__('shooting_type.sub_category_details')"
         />
       </div>
 
       <!-- Submit -->
       <div class="col-12 text-center">
-        <button @click="validateForm" class="btn btn-primary w-50 fw-bold">Next</button>
+        <button @click="validateForm" class="btn btn-primary w-50 fw-bold">
+          {{ __('buttons.next') }}
+        </button>
       </div>
     </div>
   </div>
