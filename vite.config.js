@@ -7,10 +7,12 @@ export default defineConfig({
   plugins: [
     vue(),
     VitePWA({
-      registerType: 'autoUpdate',
+      // registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
-      manifest: './public/manifest.json',
+      manifest: '/manifest.json',
       workbox: {
+        sourcemap: true,
+        cleanupOutdatedCaches: true,
         navigateFallback: '/index.html',
         globPatterns: ['**/*.{html,js,css,png,jpg,svg}'],
         runtimeCaching: [
