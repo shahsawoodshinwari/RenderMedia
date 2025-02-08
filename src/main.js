@@ -6,19 +6,18 @@ import './assets/styles/main.scss'
 // library imports
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
-import { createI18n } from 'vue-i18n'
 import Toast from 'vue-toastification'
 import { client } from 'laravel-precognition-vue'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
 
 // app imports
+import i18n from './i18n'
 import App from './App.vue'
 import router from './router'
-import en from './locales/en.json'
-import ar from './locales/ar.json'
 import axiosInstance from './libs/axios'
 import RouterMixin from './mixins/router'
-import defaultLang from './locales/default'
+import LocaleMixin from './mixins/locale'
+import toastConfig from './config/toast'
 
 // register custom axios
 client.use(axiosInstance)
@@ -35,29 +34,18 @@ app.use(router)
 // register state management library
 app.use(pinia)
 
-// register android like smooth toasts
-app.use(Toast, {
-  closeButton: false,
-  icon: false,
-  hideProgressBar: true,
-})
-
-// register translations
-const i18n = createI18n({
-  locale: defaultLang,
-  fallbackLocale: 'en',
-  messages: {
-    en: en,
-    ar: ar,
-  },
-})
+// register i18n
 app.use(i18n)
 
 // register global translation helper
 app.config.globalProperties.__ = (key) => i18n.global.t(key)
 
-// register global router helpers
+// register android like smooth toasts
+app.use(Toast, toastConfig)
+
+// register custom mixins
 app.mixin(RouterMixin)
+app.mixin(LocaleMixin)
 
 // install the vue app
 app.mount('#app')

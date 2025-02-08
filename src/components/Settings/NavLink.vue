@@ -43,3 +43,9 @@ export default {
     </svg>
   </component>
 </template>
+
+<style scoped>
+html[lang='ar'] .bi-arrow-right {
+  transform: rotate(180deg);
+}
+</style>

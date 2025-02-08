@@ -21,9 +21,9 @@ export default {
   data() {
     return {
       tabs: [
-        { id: 1, bookings: [], label: 'Ongoing' },
-        { id: 2, bookings: [], label: 'Upcoming' },
-        { id: 3, bookings: [], label: 'Completed' },
+        { id: 1, bookings: [], label: this.__('bookings.ongoing') },
+        { id: 2, bookings: [], label: this.__('bookings.upcoming') },
+        { id: 3, bookings: [], label: this.__('bookings.completed') },
       ],
       currentTab: 1,
       form: useForm('get', '/bookings', {}),
@@ -93,9 +93,13 @@ export default {
           </template>
           <template v-else>
             <div class="text-center">
-              <img :src="notFound" class="img-fluid w-50 mb-3" alt="No bookings found" />
-              <div class="fs-4 text-muted">No bookings found</div>
-              <div class="fs-6 text-secondary">We couldn't find any bookings at the moment.</div>
+              <img :src="notFound" class="img-fluid w-25 mb-3" :alt="__('bookings.no_bookings')" />
+              <div class="fs-4 text-muted">
+                {{ __('bookings.no_bookings') }}
+              </div>
+              <div class="fs-6 text-secondary">
+                {{ __('bookings.no_bookings_description') }}
+              </div>
             </div>
           </template>
         </MazTabsContentItem>
