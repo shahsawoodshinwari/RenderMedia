@@ -33,3 +33,5 @@ coverage
 *.tsbuildinfo
 
 dev-dist/
+
+public/manifest.webmanifest

@@ -41,6 +41,7 @@
   "bookings.no_bookings_description": "We couldn't find any bookings at the moment.",
   "titles.bookings": "Bookings",
   "titles.settings": "More",
+  "titles.tickets": "Tickets",
   "categories.title": "Are You Looking For ?",
   "categories.description": "Are you looking for the key to unlock your next opportunity?",
   "buttons.sign_up": "Sign Up",
@@ -86,5 +87,10 @@
   "become_freelancer.next_step_2": "Wait for 2-3 business days for your account to be activated.",
   "become_freelancer.action_button": "Go to Dashboard",
   "install_dialog.title": "Install App",
-  "install_dialog.description": "Install our app for a better user experience and real-time updates."
+  "install_dialog.description": "Install our app for a better user experience and real-time updates.",
+  "tickets.open": "Open Tickets",
+  "tickets.closed": "Closed Tickets",
+  "tickets.no_tickets": "No tickets found",
+  "tickets.no_tickets_description": "We couldn't find any tickets at the moment.",
+  "tickets.created_at": "Created At"
 }
