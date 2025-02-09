@@ -12,7 +12,9 @@ export default {
 }
 </script>
 <template>
-  <div class="container-fluid col-md-6 col-lg-5 col-xl-4 px-0 d-flex flex-column svh-100 align-items-center">
+  <div
+    class="container-fluid col-md-6 col-lg-5 col-xl-4 px-0 d-flex flex-column svh-100 align-items-center"
+  >
     <OfflineIndicator />
     <TopNavigationBar />
     <main class="flex-grow-1 container px-3">

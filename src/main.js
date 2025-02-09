@@ -15,9 +15,9 @@ import i18n from './i18n'
 import App from './App.vue'
 import router from './router'
 import axiosInstance from './libs/axios'
-import RouterMixin from './mixins/router'
-import LocaleMixin from './mixins/locale'
 import toastConfig from './config/toast'
+import LocaleMixin from './mixins/locale'
+import RouterMixin from './mixins/router'
 
 // register custom axios
 client.use(axiosInstance)
