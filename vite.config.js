@@ -1,8 +1,9 @@
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
+import pwaConfig from './src/config/pwa'
 import { VitePWA } from 'vite-plugin-pwa'
 import { fileURLToPath, URL } from 'node:url'
-import pwaConfig from './src/config/pwa'
+// import vueDevTools from 'vite-plugin-vue-devtools'
 
 export default defineConfig({
   plugins: [
@@ -10,6 +11,7 @@ export default defineConfig({
     VitePWA({
       ...pwaConfig,
     }),
+    // vueDevTools(),
   ],
   resolve: {
     alias: {
