@@ -75,6 +75,13 @@
       "label": "Login screen"
     },
     {
+      "src": "/screenshots/login-screen-dark.webp",
+      "sizes": "1200x800",
+      "type": "image/png",
+      "label": "Login screen",
+      "form_factor": "wide"
+    },
+    {
       "src": "/screenshots/register-screen.webp",
       "sizes": "430x932",
       "type": "image/webp",
