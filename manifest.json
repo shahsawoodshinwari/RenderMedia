@@ -6,7 +6,7 @@
   "app_id": "com.renderrmedia.m",
   "background_color": "#001F3F",
   "theme_color": "#001F3F",
-  "version": "3.0.4",
+  "version": "3.0.6",
   "start_url": "/",
   "dir": "auto",
   "scope": "/",
@@ -75,7 +75,7 @@
       "label": "Login screen"
     },
     {
-      "src": "/screenshots/login-screen-dark.webp",
+      "src": "/screenshots/login-screen-desktop.webp",
       "sizes": "1200x800",
       "type": "image/png",
       "label": "Login screen",
