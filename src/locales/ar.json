@@ -26,6 +26,9 @@
   "forms.show_password": "عرض كلمة المرور",
   "forms.select_shoot_type": "حدد نوع التصوير",
   "forms.fill_all_required_fields": "يرجى ملء الحقول المطلوبة.",
+  "forms.select_speciality": "حدد التخصص",
+  "forms.experience": "الخبرة في سنوات",
+  "forms.portfolio": "رابط الحافظة",
   "not_found.title": "الصفحة لم يتم العثور عليها",
   "not_found.description": "لا يمكن العثور على المورد الذي تبحث عنه على الخادم.ربما تمت إزالته أو نقله إلى موقع آخر.",
   "not_found.go_back": "اذهب إلى المنزل",
@@ -42,6 +45,7 @@
   "buttons.sign_up": "اشتراك",
   "buttons.login": "تسجيل الدخول",
   "buttons.next": "التالي",
+  "buttons.submit": "يُقدِّم",
   "Videography": "التصوير بالفيديو",
   "Photography & Edit": "التصوير الفوتوغرافي والتحرير",
   "Video Shoot Edit": "تحرير تصوير الفيديو",
@@ -70,5 +74,12 @@
   "settings.about_us": "معلومات عنا",
   "settings.faq": "الأسئلة الشائعة",
   "settings.contact_us": "اتصل بنا",
-  "buttons.logout": "تسجيل الخروج"
+  "buttons.logout": "تسجيل الخروج",
+  "become_freelancer.title": "سينغوب للعثور على عملك",
+  "become_freelancer.description": "اكتشف شغفك وقم بتصوير مسار مهني ذي معنى من خلال الاشتراك للعثور على العمل الذي تحبه & dash ؛حيث تلبي تطلعاتك الفرصة.",
+  "become_freelancer.success_title": "التسجيل ناجح",
+  "become_freelancer.next_steps_title": "ماذا بعد؟",
+  "become_freelancer.next_step_1": "تحقق من بريدك الإلكتروني للحصول على أي تحديثات.",
+  "become_freelancer.next_step_2": "انتظر 2-3 أيام عمل حتى يتم تنشيط حسابك.",
+  "become_freelancer.action_button": "اذهب إلى لوحة القيادة"
 }

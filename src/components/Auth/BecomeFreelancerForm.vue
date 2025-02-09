@@ -56,7 +56,7 @@ export default {
         @change="form.validate('first_name')"
         class="form-control"
         :class="{ 'is-invalid': form.invalid('first_name') }"
-        placeholder="First Name"
+        :placeholder="__('forms.first_name')"
         autocomplete="given-name"
       />
       <div v-if="form.invalid('first_name')" class="invalid-feedback">
@@ -72,7 +72,7 @@ export default {
         @change="form.validate('last_name')"
         class="form-control"
         :class="{ 'is-invalid': form.invalid('last_name') }"
-        placeholder="Last Name"
+        :placeholder="__('forms.last_name')"
         autocomplete="family-name"
       />
       <div v-if="form.invalid('last_name')" class="invalid-feedback">
@@ -89,7 +89,7 @@ export default {
         class="form-control"
         :class="{ 'is-invalid': form.invalid('phone') }"
         mask="+971 ##-###-####"
-        placeholder="Phone No"
+        :placeholder="__('forms.phone')"
         autocomplete="mobile"
       />
       <div v-if="form.invalid('phone')" class="invalid-feedback">
@@ -106,9 +106,9 @@ export default {
         class="form-select"
         :class="{ 'is-invalid': form.invalid('speciality'), loading: specialitiesForm.processing }"
       >
-        <option value="">Select Speciality</option>
+        <option value="">{{ __('forms.select_speciality') }}</option>
         <option v-for="speciality in specialities" :key="speciality.id">
-          {{ speciality.name }}
+          {{ __(speciality.name) }}
         </option>
       </select>
       <div v-if="form.invalid('speciality')" class="invalid-feedback">
@@ -124,7 +124,7 @@ export default {
         @change="form.validate('experience')"
         class="form-control"
         :class="{ 'is-invalid': form.invalid('experience') }"
-        placeholder="Experience in years"
+        :placeholder="__('forms.experience')"
       />
       <div v-if="form.invalid('experience')" class="invalid-feedback">
         {{ form.errors.experience }}
@@ -140,7 +140,7 @@ export default {
         @change="form.validate('portfolio')"
         class="form-control"
         :class="{ 'is-invalid': form.invalid('portfolio') }"
-        placeholder="Portfolio Link"
+        :placeholder="__('forms.portfolio')"
       />
       <div v-if="form.invalid('portfolio')" class="invalid-feedback">
         {{ form.errors.portfolio }}
@@ -153,7 +153,7 @@ export default {
         <div v-if="form.processing" class="spinner-border spinner-border-sm" role="status">
           <span class="visually-hidden">Loading...</span>
         </div>
-        <span v-else>SUBMIT</span>
+        <span v-else>{{ __('buttons.submit') }}</span>
       </button>
     </div>
   </form>

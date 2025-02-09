@@ -28,31 +28,28 @@ export default {
       <template v-if="!message">
         <div class="text-center mb-4">
           <OfficialLogo />
-          <h1 class="text-uppercase fw-bold">Singup to Find Your Work</h1>
-          <p class="w-75 mx-auto">
-            Discover your passion and forge a meaningful career path by siging up to find work you
-            love &dash; where your aspirations meet opportunity.
-          </p>
+          <h1 class="text-uppercase fw-bold">{{ __('become_freelancer.title') }}</h1>
+          <p class="w-75 mx-auto" v-html="__('become_freelancer.description')"></p>
         </div>
         <BecomeFreelancerForm @become-freelancer-success="freelancerCreated" />
       </template>
       <template v-else>
         <div class="text-center">
           <img :src="successImage" class="img-fluid mb-3 w-75" alt="Become Freelancer Success" />
-          <h1>Registration Successful</h1>
+          <h1>{{ __('become_freelancer.success_title') }}</h1>
           <div class="lead mb-3">
             {{ message }}
           </div>
           <hr />
           <div class="text-start">
-            <h4>What's Next?</h4>
+            <h4>{{ __('become_freelancer.next_steps_title') }}</h4>
             <ul class="list-unstyled hanging-list">
-              <li class="mb-2">📧 Check your email for any updates.</li>
-              <li class="mb-2">🕒 Wait for 2-3 business days for your account to be activated.</li>
+              <li class="mb-2">📧 {{ __('become_freelancer.next_steps_1') }}</li>
+              <li class="mb-2">🕒 {{ __('become_freelancer.next_steps_2') }}</li>
             </ul>
             <div class="text-center col-8 mx-auto">
               <a href="https://renderrmedia.com" class="btn btn-primary w-100" target="_blank">
-                Go to Dashboard
+                {{ __('become_freelancer.action_button') }}
               </a>
             </div>
           </div>
