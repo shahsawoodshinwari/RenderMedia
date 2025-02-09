@@ -46,6 +46,8 @@
   "buttons.login": "Login",
   "buttons.next": "Next",
   "buttons.submit": "Submit",
+  "buttons.cancel": "Cancel",
+  "buttons.install": "Install",
   "Videography": "Videography",
   "Photography & Edit": "Photography & Edit",
   "Video Shoot Edit": "Video Shoot Edit",
@@ -81,5 +83,7 @@
   "become_freelancer.next_steps_title": "What's Next?",
   "become_freelancer.next_step_1": "Check your email for any updates.",
   "become_freelancer.next_step_2": "Wait for 2-3 business days for your account to be activated.",
-  "become_freelancer.action_button": "Go to Dashboard"
+  "become_freelancer.action_button": "Go to Dashboard",
+  "install_dialog.title": "Install App",
+  "install_dialog.description": "Install our app for a better user experience and real-time updates."
 }

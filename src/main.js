@@ -19,7 +19,7 @@ import toastConfig from './config/toast'
 import LocaleMixin from './mixins/locale'
 import RouterMixin from './mixins/router'
 
-import { Modal } from 'bootstrap';
+import { Modal } from 'bootstrap'
 window.Modal = Modal
 
 // register custom axios

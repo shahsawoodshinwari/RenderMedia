@@ -4,7 +4,7 @@
 </template>
 
 <script>
-import InstallDialog from '@/components/InstallDialog.vue';
+import InstallDialog from '@/components/InstallDialog.vue'
 
 export default {
   name: 'App',
@@ -13,9 +13,9 @@ export default {
   },
   mounted() {
     window.addEventListener('beforeinstallprompt', (event) => {
-      event.preventDefault();
-      this.$refs.installDialog.setInstallPrompt(event);
-    });
-  }
-};
+      event.preventDefault()
+      this.$refs.installDialog.setInstallPrompt(event)
+    })
+  },
+}
 </script>

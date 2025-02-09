@@ -46,6 +46,9 @@
   "buttons.login": "تسجيل الدخول",
   "buttons.next": "التالي",
   "buttons.submit": "يُقدِّم",
+  "buttons.logout": "تسجيل الخروج",
+  "buttons.cancel": "يلغي",
+  "buttons.install": "ثَبَّتَ",
   "Videography": "التصوير بالفيديو",
   "Photography & Edit": "التصوير الفوتوغرافي والتحرير",
   "Video Shoot Edit": "تحرير تصوير الفيديو",
@@ -74,7 +77,6 @@
   "settings.about_us": "معلومات عنا",
   "settings.faq": "الأسئلة الشائعة",
   "settings.contact_us": "اتصل بنا",
-  "buttons.logout": "تسجيل الخروج",
   "become_freelancer.title": "سينغوب للعثور على عملك",
   "become_freelancer.description": "اكتشف شغفك وقم بتصوير مسار مهني ذي معنى من خلال الاشتراك للعثور على العمل الذي تحبه & dash ؛حيث تلبي تطلعاتك الفرصة.",
   "become_freelancer.success_title": "التسجيل ناجح",
@@ -103,5 +105,7 @@
   "Portrait Photography": "التصوير الفوتوغرافي صورة",
   "Documentary Videography": "تصوير الفيديو الوثائقي",
   "Commercial Videography": "تصوير الفيديو التجاري",
-  "Thanks for your interest. Our team will get in touch with you shortly.": "شكرا على اهتمامك.سيتواصل فريقنا معك قريبًا."
+  "Thanks for your interest. Our team will get in touch with you shortly.": "شكرا على اهتمامك.سيتواصل فريقنا معك قريبًا.",
+  "install_dialog.title": "تثبيت التطبيق",
+  "install_dialog.description": "قم بتثبيت تطبيقنا للحصول على تجربة مستخدم أفضل وتحديثات في الوقت الفعلي."
 }
