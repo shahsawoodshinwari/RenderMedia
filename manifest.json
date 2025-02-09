@@ -6,7 +6,7 @@
   "app_id": "com.renderrmedia.m",
   "background_color": "#001F3F",
   "theme_color": "#001F3F",
-  "version": "3.0.6",
+  "version": "3.0.7",
   "start_url": "/",
   "dir": "auto",
   "scope": "/",
