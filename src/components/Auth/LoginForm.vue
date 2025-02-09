@@ -83,6 +83,7 @@ export default {
           :class="{ 'is-invalid': form.invalid('password') }"
           :type="isPasswordVisible ? 'text' : 'password'"
           :placeholder="__('forms.password')"
+          autocomplete="current-password"
         />
         <!-- Eye (visible password) -->
         <span

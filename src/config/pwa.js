@@ -1,7 +1,12 @@
+import manifest from './pwa/manifest'
+
 export default {
   registerType: 'autoUpdate',
+  injectRegister: 'auto',
   includeAssets: ['favicon.ico', 'robots.txt', 'apple-touch-icon.png'],
-  manifest: '/manifest.json',
+  manifest: {
+    ...manifest,
+  },
   workbox: {
     sourcemap: true,
     cleanupOutdatedCaches: true,

@@ -1,0 +1,152 @@
+export default {
+  name: 'RenderMedia',
+  short_name: 'RenderMedia',
+  description: 'A videography app',
+  id: 'com.renderrmedia.m',
+  app_id: 'com.renderrmedia.m',
+  background_color: '#001F3F',
+  theme_color: '#001F3F',
+  version: '3.0.8',
+  start_url: '/',
+  dir: 'auto',
+  scope: '/',
+  lang: 'ar',
+  orientation: 'natural',
+  display: 'standalone',
+  launch_handler: {
+    client_mode: ['focus-existing', 'auto'],
+  },
+  handle_links: 'preferred',
+  scope_extensions: [
+    {
+      origin: '*.renderrmedia.com',
+    },
+    {
+      origin: 'https://renderrmedia.com',
+    },
+  ],
+  iarc_rating_id: 'demo-iarc-id-123456',
+  icons: [
+    {
+      src: '/favicon-16x16.png',
+      sizes: '16x16',
+      type: 'image/png',
+    },
+    {
+      src: '/favicon-32x32.png',
+      sizes: '32x32',
+      type: 'image/png',
+    },
+    {
+      src: '/android-chrome-144x144.png',
+      sizes: '144x144',
+      type: 'image/png',
+    },
+    {
+      src: '/apple-touch-icon.png',
+      sizes: '180x180',
+      type: 'image/png',
+    },
+    {
+      src: '/android-chrome-192x192.png',
+      sizes: '192x192',
+      type: 'image/png',
+    },
+    {
+      src: '/android-chrome-512x512.png',
+      sizes: '512x512',
+      type: 'image/png',
+    },
+  ],
+  screenshots: [
+    {
+      src: '/screenshots/home-screen.webp',
+      sizes: '430x932',
+      type: 'image/webp',
+      label: 'Home screen',
+    },
+    {
+      src: '/screenshots/login-screen.webp',
+      sizes: '430x932',
+      type: 'image/webp',
+      label: 'Login screen',
+    },
+    {
+      src: '/screenshots/login-screen-desktop.webp',
+      sizes: '1200x800',
+      type: 'image/png',
+      label: 'Login screen',
+      form_factor: 'wide',
+    },
+    {
+      src: '/screenshots/register-screen.webp',
+      sizes: '430x932',
+      type: 'image/webp',
+      label: 'Register screen',
+    },
+  ],
+  display_override: ['standalone', 'window-controls-overlay'],
+  prefer_related_applications: false,
+  categories: ['videography', 'photoshoot'],
+  edge_side_panel: {
+    preferred_width: 376,
+  },
+  widgets: [],
+  shortcuts: [
+    {
+      name: 'Home',
+      url: '/',
+      description: 'Home screen',
+      icons: [
+        {
+          src: './shortcuts/home/512x512.svg',
+          type: 'image/svg+xml',
+          sizes: 'any',
+        },
+        {
+          src: './shortcuts/home/192x192.png',
+          type: 'image/png',
+          sizes: '192x192',
+        },
+        {
+          src: './shortcuts/home/256x256.png',
+          type: 'image/png',
+          sizes: '256x256',
+        },
+        {
+          src: './shortcuts/home/512x512.png',
+          type: 'image/png',
+          sizes: '512x512',
+        },
+      ],
+    },
+    {
+      name: 'Bookings List',
+      short_name: 'Bookings',
+      url: '/bookings',
+      description: 'Bookings List screen',
+      icons: [
+        {
+          src: './shortcuts/bookings/512x512.svg',
+          type: 'image/svg+xml',
+          sizes: 'any',
+        },
+        {
+          src: './shortcuts/bookings/192x192.png',
+          type: 'image/png',
+          sizes: '192x192',
+        },
+        {
+          src: './shortcuts/bookings/256x256.png',
+          type: 'image/png',
+          sizes: '256x256',
+        },
+        {
+          src: './shortcuts/bookings/512x512.png',
+          type: 'image/png',
+          sizes: '512x512',
+        },
+      ],
+    },
+  ],
+}
