@@ -73,7 +73,7 @@ const routes = [
         component: () => import('../views/SettingsView.vue'),
         beforeEnter: [authGuard, verifiedGuard],
         meta: {
-          title: 'More',
+          title: 'titles.settings',
         },
       },
     ],
