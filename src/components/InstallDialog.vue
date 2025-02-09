@@ -3,14 +3,15 @@ export default {
   data() {
     return {
       deferredPrompt: null,
+      modal: null,
     }
   },
   methods: {
     // Store the install event and show the modal
     setInstallPrompt(event) {
       this.deferredPrompt = event
-      const modal = new window.Modal(this.$refs.installDialog)
-      modal.show()
+      this.modal = new window.Modal(this.$refs.installDialog)
+      this.modal.show()
     },
     // Handle install button click
     async installApp() {
@@ -19,9 +20,9 @@ export default {
 
         const choiceResult = await this.deferredPrompt.userChoice
         if (choiceResult.outcome === 'accepted') {
-          console.log('User accepted the install prompt')
+          this.modal.hide()
         } else {
-          console.log('User dismissed the install prompt')
+          window.location.reload()
         }
 
         this.deferredPrompt = null // Reset after prompt is handled
@@ -57,10 +58,10 @@ export default {
           {{ __('install_dialog.description') }}
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          <button type="button" class="btn w-25 btn-secondary" data-bs-dismiss="modal">
             {{ __('buttons.cancel') }}
           </button>
-          <button type="button" class="btn btn-primary" @click="installApp">
+          <button type="button" class="btn w-25 btn-primary" @click="installApp">
             {{ __('buttons.install') }}
           </button>
         </div>
