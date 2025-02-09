@@ -121,7 +121,7 @@ export default {
       >
         <option value="">{{ __('forms.select_gender') }}</option>
         <option :value="gender.value" v-for="gender in genders" :key="gender.key">
-          {{ __(gender.key) }}
+          {{ __(`register.${gender.key}`) }}
         </option>
       </select>
       <div v-if="form.invalid('gender')" class="invalid-feedback">

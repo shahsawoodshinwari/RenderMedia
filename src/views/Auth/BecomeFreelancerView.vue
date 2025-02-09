@@ -41,11 +41,11 @@ export default {
             {{ message }}
           </div>
           <hr />
-          <div class="text-start">
+          <div class="text-start" :class="{ 'text-end': locale === 'ar' }">
             <h4>{{ __('become_freelancer.next_steps_title') }}</h4>
             <ul class="list-unstyled hanging-list">
-              <li class="mb-2">📧 {{ __('become_freelancer.next_steps_1') }}</li>
-              <li class="mb-2">🕒 {{ __('become_freelancer.next_steps_2') }}</li>
+              <li class="mb-2">📧 {{ __('become_freelancer.next_step_1') }}</li>
+              <li class="mb-2">🕒 {{ __('become_freelancer.next_step_2') }}</li>
             </ul>
             <div class="text-center col-8 mx-auto">
               <a href="https://renderrmedia.com" class="btn btn-primary w-100" target="_blank">
