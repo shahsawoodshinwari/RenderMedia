@@ -60,6 +60,24 @@ const routes = [
         },
       },
       {
+        path: '/tickets',
+        name: 'tickets.index',
+        component: () => import('../views/Tickets/TicketList.vue'),
+        beforeEnter: [authGuard, verifiedGuard],
+        meta: {
+          title: 'titles.tickets',
+        },
+      },
+      {
+        path: '/tickets/:id',
+        name: 'tickets.show',
+        component: () => import('../views/Tickets/TicketShow.vue'),
+        beforeEnter: [authGuard, verifiedGuard],
+        meta: {
+          title: 'titles.tickets',       
+        },
+      },
+      {
         path: '/offline',
         name: 'offline',
         component: () => import('../views/OfflineView.vue'),

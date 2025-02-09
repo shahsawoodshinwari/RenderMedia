@@ -41,6 +41,7 @@
   "bookings.no_bookings_description": "لم نتمكن من العثور على أي حجوزات في الوقت الحالي.",
   "titles.bookings": "الحجوزات",
   "titles.settings": "أكثر",
+  "titles.tickets": "التذاكر",
   "categories.title": "هل تبحث عن؟",
   "categories.description": "هل تبحث عن مفتاح فتح فرصتك التالية؟",
   "buttons.sign_up": "اشتراك",
@@ -108,5 +109,10 @@
   "Commercial Videography": "تصوير الفيديو التجاري",
   "Thanks for your interest. Our team will get in touch with you shortly.": "شكرا على اهتمامك.سيتواصل فريقنا معك قريبًا.",
   "install_dialog.title": "تثبيت التطبيق",
-  "install_dialog.description": "قم بتثبيت تطبيقنا للحصول على تجربة مستخدم أفضل وتحديثات في الوقت الفعلي."
+  "install_dialog.description": "قم بتثبيت تطبيقنا للحصول على تجربة مستخدم أفضل وتحديثات في الوقت الفعلي.",
+  "tickets.open": "فتح التذاكر",
+  "tickets.closed": "تذاكر مغلقة",
+  "tickets.no_tickets": "لم يتم العثور على تذاكر",
+  "tickets.no_tickets_description": "لم نتمكن من العثور على أي تذاكر في الوقت الحالي.",
+  "tickets.created_at": "تم الانشاء في"
 }
