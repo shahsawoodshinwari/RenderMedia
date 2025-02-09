@@ -78,10 +78,12 @@ export default {
     <!-- Show Categories -->
     <template v-else>
       <div
-        class="col-6 col-md-4 col-lg-3 col-xxl-2 cursor-pointer"
+        class="col-6 col-md-4 cursor-pointer"
         @click="next(item.id)"
         v-for="(item, index) in categories"
         :key="index"
+        role="button"
+        :aria-labelledby="`category-${item.id}`"
       >
         <MazLazyImg
           :src="item.cover"
@@ -89,7 +91,7 @@ export default {
           block
           :alt="__(item.name)"
         />
-        <div class="text-center text-truncated">
+        <div class="text-center text-truncated" :id="`category-${item.id}`">
           {{ __(item.name) }}
         </div>
       </div>

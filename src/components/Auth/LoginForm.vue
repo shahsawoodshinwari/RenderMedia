@@ -78,7 +78,7 @@ export default {
       <div class="position-relative">
         <input
           v-model="form.password"
-          class="form-control"
+          class="form-control pe-5"
           name="password"
           :class="{ 'is-invalid': form.invalid('password') }"
           :type="isPasswordVisible ? 'text' : 'password'"
@@ -147,8 +147,8 @@ export default {
       <!-- Remember me -->
       <div class="d-flex justify-content-between flex-wrap gap-3">
         <div class="form-check d-flex gap-3 justify-content-end">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
-          <label class="form-check-label" for="flexCheckDefault">
+          <input class="form-check-input" type="checkbox" value="" id="remember" />
+          <label class="form-check-label" :class="{ 'me-3': locale === 'ar' }" for="remember">
             {{ __('login.remember_me') }}
           </label>
         </div>

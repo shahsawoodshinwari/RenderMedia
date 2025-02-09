@@ -1,9 +1,9 @@
-const CACHE_VERSION = 'v3'
+const CACHE_VERSION = 'v3.0.4'
 const CACHE_NAME = `pwa-cache-${CACHE_VERSION}`
 const OFFLINE_PAGE = '/offline' // Updated route
 
 // Pre-cache static assets and offline page
-const ASSETS_REGEX = /\/assets\/.*/
+const ASSETS_REGEX = /\/assets\/.*\.(js|css|png|jpg|svg|webp|woff2|ttf|json)/gi
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -61,6 +61,14 @@ function extractAssetUrls(html, regex) {
 // Remove old caches during activation
 self.addEventListener('activate', (event) => {
   event.waitUntil(
+    (async () => {
+      const clients = await self.clients.matchAll({ type: 'window' })
+      for (const client of clients) {
+        client.postMessage({ type: 'NEW_VERSION_AVAILABLE' })
+      }
+    })(),
+  )
+  event.waitUntil(
     caches.keys().then((cacheNames) =>
       Promise.all(
         cacheNames.map((cache) => {
@@ -71,7 +79,7 @@ self.addEventListener('activate', (event) => {
       ),
     ),
   )
-  self.clients.claim() // Take control of the pages immediately
+  self.clients.claim()
 })
 
 // Intercept fetch requests
@@ -119,25 +127,27 @@ self.addEventListener('fetch', (event) => {
   // API Calls: Cache the bookings data and serve it offline
   if (request.url.includes('/bookings')) {
     event.respondWith(
-      caches.match(request).then((cachedResponse) => {
-        if (cachedResponse) {
-          return cachedResponse
-        }
-        return fetch(request)
-          .then((response) => {
-            const clonedResponse = response.clone()
-            caches.open(CACHE_NAME).then((cache) => {
-              cache.put(request, clonedResponse)
+      caches
+        .open(CACHE_NAME)
+        .then(async (cache) => {
+          const cachedResponse = await cache.match(request)
+          if (cachedResponse) {
+            // Return cached version but also fetch fresh data in the background
+            fetch(request).then((response) => {
+              cache.put(request, response.clone())
             })
+            return cachedResponse
+          }
+          return fetch(request).then((response) => {
+            cache.put(request, response.clone())
             return response
           })
-          .catch(async () => {
-            const cache = await caches.open(CACHE_NAME)
-            return cache.match(request) // Fallback to cached version when offline
-          })
-      }),
+        })
+        .catch(async () => {
+          const cache = await caches.open(CACHE_NAME)
+          return cache.match(request)
+        }),
     )
-    return
   }
 
   // Default: NetworkFirst strategy

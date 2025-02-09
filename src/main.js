@@ -47,5 +47,16 @@ app.use(Toast, toastConfig)
 app.mixin(RouterMixin)
 app.mixin(LocaleMixin)
 
+// register service worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.addEventListener('message', (event) => {
+    if (event.data.type === 'NEW_VERSION_AVAILABLE') {
+      if (confirm('A new version is available. Refresh now?')) {
+        window.location.reload()
+      }
+    }
+  })
+}
+
 // install the vue app
 app.mount('#app')

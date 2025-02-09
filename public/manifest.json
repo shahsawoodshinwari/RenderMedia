@@ -6,10 +6,11 @@
   "app_id": "com.renderrmedia.m",
   "background_color": "#001F3F",
   "theme_color": "#001F3F",
+  "version": "3.0.4",
   "start_url": "/",
-  "dir": "ltr",
+  "dir": "auto",
   "scope": "/",
-  "lang": "en",
+  "lang": "ar",
   "orientation": "natural",
   "display": "standalone",
   "launch_handler": {
