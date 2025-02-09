@@ -3,14 +3,14 @@
 
 @font-face {
   font-family: 'Roboto';
-  src: url('../assets/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf') format('ttf');
+  src: url('@/assets/fonts/Roboto/Roboto-VariableFont_wdth,wght.ttf') format('ttf');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Noto Sans Arabic';
-  src: url('../assets/fonts/Noto-Sans-Arabic/NotoSansArabic-VariableFont_wdth,wght.ttf')
+  src: url('@/assets/fonts/Noto-Sans-Arabic/NotoSansArabic-VariableFont_wdth,wght.ttf')
     format('ttf');
   font-weight: 400;
   font-style: normal;
