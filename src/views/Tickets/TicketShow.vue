@@ -1,26 +1,60 @@
 <script>
-import TicketChats from '@/components/Tickets/TicketChats.vue';
+import TicketCreate from './TicketCreate.vue';
+import { useUserStore } from '@/stores/userStore';
 import { useForm } from 'laravel-precognition-vue';
+import NoTickets from '@/components/Tickets/NoTickets.vue';
+import MessageSent from '@/components/Tickets/MessageSent.vue';
+import MessageReceived from '@/components/Tickets/MessageReceived.vue';
 
 export default {
   name: 'TicketShow',
   components: {
-    TicketChats,
+    NoTickets,
+    MessageSent,
+    TicketCreate,
+    MessageReceived,
   },
   data() {
     return {
-      item: null,
+      replies: [],
       form: useForm('get', `/tickets/${this.$route.params.id}`, {}),
     };
   },
-  mounted() {
+  computed: {
+    userStore() {
+      return useUserStore();
+    },
+  },
+  methods: {
+    isSentMessage(author) {
+      return this.userStore.name === author;
+    },
+  },
+  async mounted() {
     this.form.submit().then((response) => {
-      this.item = response.data;
+      this.replies = response.data.replies;
     });
   },
 };
 </script>
 
 <template>
-  <TicketChats :ticket="item" />
+  <div class="d-flex flex-column h-100">
+    <div class="flex-grow-1 overflow-y-auto container">
+      <div class="row g-2" v-if="replies.length > 0 && !form.processing">
+        <template v-for="(reply, index) in replies" :key="index">
+          <MessageSent class="user-select-none" v-if="isSentMessage(reply.actual_sender)" :reply="reply" />
+          <MessageReceived class="user-select-none" v-else :reply="reply" />
+        </template>
+      </div>
+      <div v-else-if="form.processing" class="text-center">
+        <div class="spinner-border text-primary" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+      <NoTickets v-else />
+    </div>
+
+    <TicketCreate />
+  </div>
 </template>

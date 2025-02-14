@@ -29,6 +29,7 @@
   "forms.select_speciality": "Select Speciality",
   "forms.experience": "Experience in years",
   "forms.portfolio": "Portfolio Link",
+  "forms.send_message": "Send your message",
   "not_found.title": "Page Not Found",
   "not_found.description": "The resource you are looking for could not be found on the server. It might have been removed or moved to another location.",
   "not_found.go_back": "Go to Home",
