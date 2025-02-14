@@ -25,15 +25,18 @@ export default {
       return useUserStore();
     },
   },
+  async mounted() {
+    this.fetchReplies();
+  },
   methods: {
     isSentMessage(author) {
       return this.userStore.name === author;
     },
-  },
-  async mounted() {
-    this.form.submit().then((response) => {
-      this.replies = response.data.replies;
-    });
+    async fetchReplies() {
+      return this.form.submit().then((response) => {
+        this.replies = response.data.replies;
+      });
+    },
   },
 };
 </script>
@@ -55,7 +58,7 @@ export default {
       <NoTickets v-else />
     </div>
 
-    <TicketCreate />
+    <TicketCreate @message-sent="fetchReplies" />
   </div>
 </template>
 

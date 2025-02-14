@@ -3,6 +3,7 @@ import { useForm } from 'laravel-precognition-vue';
 
 export default {
   name: 'TicketCreate',
+  emits: ['message-sent'],
   data() {
     return {
       item: null,
@@ -14,7 +15,8 @@ export default {
   methods: {
     onSubmit() {
       this.form.submit().then((response) => {
-        console.log(response);
+        this.$emit('message-sent', response.data);
+        this.form.reset();
       });
     }
   },

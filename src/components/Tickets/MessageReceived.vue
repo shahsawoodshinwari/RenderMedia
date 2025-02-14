@@ -13,7 +13,7 @@ export default {
 <template>
   <div class="col-9 col-md-7 me-auto">
     <div class="w-fit-content rounded px-3 py-2 text-bg-light me-auto">
-      <div class="">{{ reply.message }}</div>
+      {{ reply.message }}
     </div>
     <div class="text-muted text-start">
       <small>
