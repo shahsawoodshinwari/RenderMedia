@@ -41,7 +41,7 @@ export default {
 <template>
   <div class="d-flex flex-column h-100">
     <div class="flex-grow-1 overflow-y-auto container">
-      <div class="row g-2" v-if="replies.length > 0 && !form.processing">
+      <div class="row g-2 messages" v-if="replies.length > 0 && !form.processing">
         <template v-for="(reply, index) in replies" :key="index">
           <MessageSent class="user-select-none" v-if="isSentMessage(reply.actual_sender)" :reply="reply" />
           <MessageReceived class="user-select-none" v-else :reply="reply" />
@@ -58,3 +58,14 @@ export default {
     <TicketCreate />
   </div>
 </template>
+
+<style scoped>
+.overflow-y-auto::-webkit-scrollbar {
+  display: none;
+  max-height: 77vh;
+}
+
+.messages {
+  font-size: medium;
+}
+</style>

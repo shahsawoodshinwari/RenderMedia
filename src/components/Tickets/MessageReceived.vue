@@ -11,7 +11,7 @@ export default {
 </script>
 
 <template>
-  <div class="col-12">
+  <div class="col-9 col-md-7 me-auto">
     <div class="w-fit-content rounded px-3 py-2 text-bg-light me-auto">
       <div class="">{{ reply.message }}</div>
     </div>
