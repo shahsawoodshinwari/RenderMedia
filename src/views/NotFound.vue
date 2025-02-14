@@ -24,7 +24,7 @@ export default {
 
     <!-- Suggest returning to home -->
     <RouterLink to="/" class="btn btn-primary">
-      {{ __('not_found.go_bank') }}
+      {{ __('not_found.go_back') }}
     </RouterLink>
   </div>
 </template>
