@@ -37,7 +37,7 @@
     "@vitest/eslint-plugin": "1.1.20",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/test-utils": "^2.4.6",
-    "eslint": "^9.14.0",
+    "eslint": "^9.21.0",
     "eslint-plugin-vue": "^9.30.0",
     "gh-pages": "^6.3.0",
     "jsdom": "^26.0.0",
