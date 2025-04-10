@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "@simplewebauthn/browser": "^13.1.0",
-    "axios": "^1.7.9",
+    "axios": "^1.8.4",
     "bootstrap": "^5.3.3",
     "laravel-precognition-vue": "^0.6.1",
     "maz-ui": "^3.50.1",
@@ -42,7 +42,7 @@
     "gh-pages": "^6.3.0",
     "jsdom": "^26.0.0",
     "prettier": "^3.5.3",
-    "vite": "^6.2.1",
+    "vite": "^6.2.5",
     "vite-plugin-pwa": "^0.21.1",
     "vite-plugin-vue-devtools": "^7.7.1",
     "vitest": "^3.0.5"
